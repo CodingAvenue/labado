@@ -1,7 +1,7 @@
 coding_avenue_labado:
     resource: "@CodingAvenueLabadoBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /test
 
 app:
     resource: '@AppBundle/Controller/'

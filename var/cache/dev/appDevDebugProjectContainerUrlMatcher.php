@@ -109,7 +109,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // codingavenue_labado_default_index
-        if ('' === $trimmedPathinfo) {
+        if ('/test' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
                 return $this->redirect($pathinfo.'/', 'codingavenue_labado_default_index');
             }
