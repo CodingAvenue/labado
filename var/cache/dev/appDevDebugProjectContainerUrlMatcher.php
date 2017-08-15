@@ -108,6 +108,15 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // codingavenue_labado_default_index
+        if ('' === $trimmedPathinfo) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'codingavenue_labado_default_index');
+            }
+
+            return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'codingavenue_labado_default_index',);
+        }
+
         // homepage
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
