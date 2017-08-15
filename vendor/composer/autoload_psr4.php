@@ -38,5 +38,6 @@ return array(
     'Doctrine\\Bundle\\DoctrineCacheBundle\\' => array($vendorDir . '/doctrine/doctrine-cache-bundle'),
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
+    'CodingAvenue\\' => array($baseDir . '/src/CodingAvenue'),
     'AppBundle\\' => array($baseDir . '/src/AppBundle'),
 );

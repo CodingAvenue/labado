@@ -1,0 +1,4 @@
+services:
+#    coding_avenue_labado.example:
+#        class: CodingAvenue\LabadoBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
