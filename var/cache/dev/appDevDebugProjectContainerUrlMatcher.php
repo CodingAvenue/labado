@@ -109,12 +109,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // codingavenue_labado_default_index
-        if ('/test' === $trimmedPathinfo) {
+        if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
                 return $this->redirect($pathinfo.'/', 'codingavenue_labado_default_index');
             }
 
             return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'codingavenue_labado_default_index',);
+        }
+
+        // codingavenue_labado_userinteractioncontroller_inputestimate
+        if (preg_match('#^/(?P<id>[^/]++)/estimate$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'codingavenue_labado_userinteractioncontroller_inputestimate')), array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\UserInteractionControllerController::inputEstimateAction',));
         }
 
         // homepage

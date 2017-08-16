@@ -9,7 +9,10 @@ class EstimateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder,array $options)
     {
             $builder
-            ->add('quantity', NumberType::class)
+            ->add('clothes_white', NumberType::class)
+            ->add('clothes_colored',NumberType::Class)
+            ->add('bedsheets_white',NumberType::Class)
+            ->add('bedsheets_colored',NumberType::Class)
             ->getForm();
     }
 }
