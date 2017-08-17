@@ -209,3 +209,5 @@ bcfeb4,127.0.0.1,GET,http://localhost:8000/show_details,1502874966,,200
 4857a4,127.0.0.1,GET,http://localhost:8000/show_details,1502882773,,200
 893836,127.0.0.1,GET,http://localhost:8000/show_details,1502951146,,200
 edd90e,127.0.0.1,GET,http://localhost:8000/show_details,1502951261,,200
+adf696,127.0.0.1,GET,http://localhost:8000/,1502954595,,200
+39439a,127.0.0.1,GET,http://localhost:8000/show_details,1502954602,,200
