@@ -117,6 +117,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'codingavenue_labado_default_index',);
         }
 
+        // codingavenue_labado_default_showdetails
+        if ('/show_details' === $pathinfo) {
+            return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\DefaultController::showDetailsAction',  '_route' => 'codingavenue_labado_default_showdetails',);
+        }
+
         // homepage
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {

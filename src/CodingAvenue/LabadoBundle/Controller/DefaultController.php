@@ -14,4 +14,12 @@ class DefaultController extends Controller
     {
         return $this->render('CodingAvenueLabadoBundle:Default:index.html.twig');
     }
+
+    /**
+     * @Route("/show_details")
+     */
+    public function showDetailsAction()
+    {
+        return $this->render('CodingAvenueLabadoBundle:Default:showDetails.html.twig');
+    }
 }
