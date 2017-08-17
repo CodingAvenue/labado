@@ -337,3 +337,10 @@ e5e6e4,127.0.0.1,GET,http://localhost:8000/loading_screen,1502965756,,200
 5bb554,127.0.0.1,GET,http://localhost:8000/images/gifload.gif,1502965842,,404
 d7691d,127.0.0.1,GET,http://localhost:8000/loading_screen,1502965960,,200
 2674c8,127.0.0.1,GET,http://localhost:8000/loading_screen,1502966269,,200
+154082,127.0.0.1,GET,http://localhost:8000/show),1502971745,0da5cd,200
+0da5cd,127.0.0.1,GET,http://localhost:8000/show),1502971745,,404
+d2cb6f,127.0.0.1,GET,http://localhost:8000/show_details,1502971749,,200
+5d8168,127.0.0.1,GET,http://localhost:8000/loading_screen,1502971975,,200
+78c820,127.0.0.1,GET,http://localhost:8000/,1502972242,,200
+7393a9,127.0.0.1,GET,http://localhost:8000/show_details,1502972253,,200
+e3e832,127.0.0.1,GET,http://localhost:8000/show_details,1502972701,,200
