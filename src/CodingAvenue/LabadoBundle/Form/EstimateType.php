@@ -11,8 +11,6 @@ class EstimateType extends AbstractType
             $builder
             ->add('clothes_white', NumberType::class)
             ->add('clothes_colored',NumberType::Class)
-            ->add('bedsheets_white',NumberType::Class)
-            ->add('bedsheets_colored',NumberType::Class)
             ->getForm();
     }
 }
