@@ -14,10 +14,11 @@ class UserInteractionControllerController extends Controller
      */
     public function inputEstimateAction($id)
     { 
-         //rate is temporary; the value should come from the 
+        //rate is temporary; the value should come from the 
         $rate = 29; 
         $form = $this->createForm(EstimateType::class);
         if ($form->isSubmitted() && $form->isValid()) {
+        
 
         }
         return $this->render('CodingAvenueLabadoBundle:UserInteractionController:input_estimate.html.twig',[ "form" => $form->createView(),"rate" =>$rate]);
