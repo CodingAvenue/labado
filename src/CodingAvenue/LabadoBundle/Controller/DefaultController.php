@@ -12,6 +12,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+     
         return $this->render('CodingAvenueLabadoBundle:Default:index.html.twig');
     }
 }
