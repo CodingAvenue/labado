@@ -117,9 +117,19 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'codingavenue_labado_default_index',);
         }
 
-        // codingavenue_labado_default_showdetails
+        // codingavenue_labado_userinteractioncontroller_inputestimate
+        if (preg_match('#^/(?P<id>[^/]++)/estimate$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'codingavenue_labado_userinteractioncontroller_inputestimate')), array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\UserInteractionControllerController::inputEstimateAction',));
+        }
+
+        // codingavenue_labado_userinteractioncontroller_showdetails
         if ('/show_details' === $pathinfo) {
-            return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\DefaultController::showDetailsAction',  '_route' => 'codingavenue_labado_default_showdetails',);
+            return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\UserInteractionControllerController::showDetailsAction',  '_route' => 'codingavenue_labado_userinteractioncontroller_showdetails',);
+        }
+
+        // codingavenue_labado_userinteractioncontroller_loadingscreen
+        if ('/loading_screen' === $pathinfo) {
+            return array (  '_controller' => 'CodingAvenue\\LabadoBundle\\Controller\\UserInteractionControllerController::loadingScreenAction',  '_route' => 'codingavenue_labado_userinteractioncontroller_loadingscreen',);
         }
 
         // homepage
