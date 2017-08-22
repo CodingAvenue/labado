@@ -40,4 +40,5 @@ class UserInteractionControllerController extends Controller
      {
          return $this->render('CodingAvenueLabadoBundle:UserInteractionController:loadingScreen.html.twig');
      }
+
 }
