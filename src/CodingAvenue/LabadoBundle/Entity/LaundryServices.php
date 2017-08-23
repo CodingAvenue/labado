@@ -31,14 +31,14 @@ class LaundryServices
     /**
      * @var float
      *
-     * @ORM\Column(name="rate", type="float")
+     * @ORM\Column(name="price_per_kilo", type="float")
      */
-    private $rate;
+    private $pricePerKilo;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="laundryShopId", type="string", length=255)
+     * @ORM\Column(name="laundry_shop_id", type="integer")
      */
     private $laundryShopId;
 
@@ -78,33 +78,33 @@ class LaundryServices
     }
 
     /**
-     * Set rate
+     * Set pricePerKilo
      *
-     * @param float $rate
+     * @param float $pricePerKilo
      *
      * @return LaundryServices
      */
-    public function setRate($rate)
+    public function setPricePerKilo($pricePerKilo)
     {
-        $this->rate = $rate;
+        $this->pricePerKilo = $pricePerKilo;
 
         return $this;
     }
 
     /**
-     * Get rate
+     * Get pricePerKilo
      *
      * @return float
      */
-    public function getRate()
+    public function getPricePerKilo()
     {
-        return $this->rate;
+        return $this->pricePerKilo;
     }
 
     /**
      * Set laundryShopId
      *
-     * @param string $laundryShopId
+     * @param integer $laundryShopId
      *
      * @return LaundryServices
      */
@@ -118,7 +118,7 @@ class LaundryServices
     /**
      * Get laundryShopId
      *
-     * @return string
+     * @return int
      */
     public function getLaundryShopId()
     {
