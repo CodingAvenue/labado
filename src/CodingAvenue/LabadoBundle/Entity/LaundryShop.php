@@ -3,6 +3,7 @@
 namespace CodingAvenue\LabadoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * LaundryShop
@@ -63,6 +64,15 @@ class LaundryShop
      */
     private $placeId;
 
+    /**
+     * @ORM\OneToMany(targetEntity="LaundryService", mappedBy="laundryShop")
+     */
+    private $services;
+
+    public function __construct()
+    {
+        $this->services = new ArrayCollection;
+    }
 
     /**
      * Get id

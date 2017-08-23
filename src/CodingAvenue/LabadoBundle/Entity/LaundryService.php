@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * LaundryServices
  *
- * @ORM\Table(name="laundry_services")
- * @ORM\Entity(repositoryClass="CodingAvenue\LabadoBundle\Repository\LaundryServicesRepository")
+ * @ORM\Table(name="laundry_service")
+ * @ORM\Entity(repositoryClass="CodingAvenue\LabadoBundle\Repository\LaundryServiceRepository")
  */
-class LaundryServices
+class LaundryService
 {
     /**
      * @var int
@@ -36,12 +36,9 @@ class LaundryServices
     private $pricePerKilo;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="laundry_shop_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="LaundryShop", inversedBy="services")
      */
-    private $laundryShopId;
-
+    private $laundryShop;
 
     /**
      * Get id
@@ -102,27 +99,26 @@ class LaundryServices
     }
 
     /**
-     * Set laundryShopId
+     * Set laundryShop
      *
-     * @param integer $laundryShopId
+     * @param integer $laundryShop
      *
      * @return LaundryServices
      */
-    public function setLaundryShopId($laundryShopId)
+    public function setLaundryShop(LaundryShop $laundryShop)
     {
-        $this->laundryShopId = $laundryShopId;
+        $this->laundryShop = $laundryShop;
 
         return $this;
     }
 
     /**
-     * Get laundryShopId
      *
-     * @return int
+     * @return LaundryShop
      */
-    public function getLaundryShopId()
+    public function getLaundryShop()
     {
-        return $this->laundryShopId;
+        return $this->laundryShop;
     }
 }
 
