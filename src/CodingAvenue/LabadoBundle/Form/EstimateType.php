@@ -9,8 +9,6 @@ class EstimateType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder,array $options)
     {
-        $builder;
-
             foreach($options['services'] as $service){
                 $builder->add("{$service->getType()}",NumberType::class);
                 
