@@ -51,6 +51,13 @@ class LaundryShop
     private $minimumWeight;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="contact_number", type="integer", nullable=true)
+     */
+    private $contactNumber;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="coordinates", type="json_array")
@@ -178,6 +185,30 @@ class LaundryShop
     public function getMinimumWeight()
     {
         return $this->minimumWeight;
+    }
+    
+    /**
+     * Set contactNumber
+     *
+     * @param integer $contactNumber
+     *
+     * @return LaundryShop
+     */
+    public function setContactNumber($contactNumber)
+    {
+        $this->contactNumber = $contactNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get contactNumber
+     *
+     * @return int
+     */
+    public function getContactNumber()
+    {
+        return $this->contactNumber;
     }
 
     /**

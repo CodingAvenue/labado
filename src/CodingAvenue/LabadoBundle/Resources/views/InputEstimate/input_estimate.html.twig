@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}{{shop.getName() }} | Estimation{% endblock %}
 {% block body %}
     {{ form_start(form,{ 'attr': {'id': 'estimate'} } ) }}
     <div class="container labado_body_container">
@@ -9,7 +9,7 @@
             <div class="col s4">Est. Weight</div>
         </div>
 
-        {% for index, service in services %}
+        {% for index, service in shop.services %}
         <div class="row rowtype"> 
             <div class="col s4">
                 {{ service.getType() }}
