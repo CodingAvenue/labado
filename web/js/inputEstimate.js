@@ -2,12 +2,17 @@
     $( "#estimate .rowtype" ).on( "keyup", "input", function() {
         
         var rate = parseFloat($(this).attr('data-rate').toString());
+
         $('#total_price').html(loadingImage);
+
         var val = parseFloat($(this).val());
-        var appendToId = $(this).attr('data-target').toString();
+        var appendToId = $(this).data('target').toString();
         var ans = 0;
-        ((rate*val)+"" !="NaN") ? ans = rate * val : ans = 0;
+
+        ans = ((rate*val)+"" !="NaN") ? rate * val : 0;
+
         $('#amount_'+appendToId.charAt(appendToId.length-1) ).html("P"+ans+".00");
+
         var amountNumber = 1;
         var total = 0;
 
@@ -16,9 +21,8 @@
             total += parseFloat(str.substring(1)); 
             amountNumber++;
         }
-        setTimeout(function(){
-            $('#total_price').html("Subtotal : P"+total+".00");
-        },300);
+
+            $('#total_price').html("Subtotal : P"+total);
     });
     
 
