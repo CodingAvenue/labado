@@ -12,7 +12,7 @@ use CodingAvenue\LabadoBundle\Entity\LaundryServices;
 class InputEstimateController extends Controller
 {
     /**
-     * @Route("/laundry/{id}/estimate", name="inputEstimate")
+     * @Route("/laundryshop/{id}/estimate", name="inputEstimate")
      */
     public function inputEstimateAction(LaundryShop $shop)
     {

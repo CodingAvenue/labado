@@ -1,0 +1,8 @@
+@media screen and (min-width: 480px) {
+    #back-chevron{
+        display:none !important;
+    }
+}
+#back-chevron{
+    display: inline;
+}
