@@ -8,7 +8,6 @@
         text-align:center;
         font-weight:bold;
 
-
     }
     #total_price img{
         max-height:50px;
@@ -29,13 +28,27 @@
        font-weight:bold;
 
     }
-    .labado_body_container{
-        
+    .estimator-right-container,.estimator-left-container {
         text-align:center;
         margin-top:20px !important;
-        padding:20px;
-        padding-bottom:5px;
-        background-color:rgb(250,250,250);
+        padding:20px !important;
+        padding-bottom:0px;
+ 
+    }
+    .estimator-left-container{
+        background-color:rgb(245,245,245);
+
+    }
+    .estimator-main-container{
         border-radius:5px;
-        box-shadow:0px 1px 1px 0px black;
+        margin-top:20px !important;
+        box-shadow: 0px 0px 2px 0px black;
+
+    }
+    .logo-container img{
+        width:100%;
+        max-width: 200px;
+
+
+
     }
