@@ -1,31 +1,31 @@
-.form-end{
+.form-end {
     height: 80px;
     margin-bottom: 0px;
 }
 
-#total_price{
+#total_price {
     text-align: center;
     font-weight: bold;
 }
 
-#total_price img{
+#total_price img {
     max-height: 50px;
     max-width: 50px;
 }
-.focus{
+.focus {
     border-radius: 10px 10px;
     background-color: rgb(235,235,235);
     padding: 15px;
     font-weight: bold;
 }
 
-.header{
+.header {
     border-bottom: 1px dotted #666; 
     padding: 15px;
     font-weight: bold;
 }
 
-.labado_body_container{
+.labado_body_container {
     text-align: center;
     margin-top: 20px !important;
     padding: 20px;
