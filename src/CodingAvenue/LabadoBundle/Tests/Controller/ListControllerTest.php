@@ -4,13 +4,13 @@ namespace CodingAvenue\LabadoBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class UserInteractionControllerControllerTest extends WebTestCase
+class ListControllerTest extends WebTestCase
 {
-    public function testInputestimate()
+    public function testIndex()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/{id}/estimate');
+        $crawler = $client->request('GET', 'laundryshops');
     }
 
 }
