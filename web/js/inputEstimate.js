@@ -15,7 +15,6 @@
 
         $(".result").each(function(index) {
             total += parseFloat($(this).text().substring(1))
-            console.log(total);
         })
             $('#total_price').html("Subtotal : &#8369;"+total);
     });
