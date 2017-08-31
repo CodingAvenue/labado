@@ -14,10 +14,4 @@ class ListController extends Controller
     {
        return $this->render('CodingAvenueLabadoBundle:List:index.html.twig');
     }
-
-    public function detailsAction(){
-
-
-
-    }
 }
