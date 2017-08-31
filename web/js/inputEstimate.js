@@ -5,10 +5,8 @@
 
         $('#total_price').html(loadingImage);
         
-        var val = parseFloat($(this).val());
-        var ans = 0;
-
-        ans = ((rate*val)+"" !="NaN") ? rate * val : 0;
+        var val = parseFloat($(this).val()) || 0;
+        var ans = rate*val;
 
         $(this).parent().parent().find('.result:first').html("&#8369;"+ans);
         var amountNumber = 1;
