@@ -2,7 +2,8 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    env(database_host): 192.168.1.2
+    database_host: '%env(database_host)%'
+    env(database_host): 192.168.6.8
     env(database_port): 5432
     env(database_name): shiela_db
     env(database_user): shielaboba
