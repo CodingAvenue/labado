@@ -69,6 +69,36 @@ class LaundryShop
      */
     private $services;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="website", type="string", length=255, nullable=true)
+     */
+    private $website;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_number", type="string", length=255, nullable=true)
+     */
+    private $phoneNumber;
+    
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rating", type="float", nullable=true)
+     */
+    private $rating;
+
     public function __construct()
     {
         $this->services = new ArrayCollection;
@@ -82,6 +112,103 @@ class LaundryShop
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param string $phoneNumber
+     *
+     * @return LaundryShop
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param float $rating
+     *
+     * @return LaundryShop
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return float
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set website
+     *
+     * @param string $website
+     *
+     * @return LaundryShop
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
+     * @return string
+     */
+
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return LaundryShop
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**
