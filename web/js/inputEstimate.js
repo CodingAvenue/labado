@@ -8,8 +8,6 @@
         var val = parseFloat($(this).val()) || 0;
         var ans = rate*val;
 
-        var ans = ((rate*val)+"" !="NaN") ? rate * val : 0;
-
         $(this).parent().parent().find('.result:first').html("&#8369;"+ans);
         var amountNumber = 1;
         var total = 0;
