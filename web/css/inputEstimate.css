@@ -1,0 +1,43 @@
+.form-end{
+    height:80px;
+    margin-bottom: 0px;
+}
+
+#total_price{
+    text-align:center;
+    font-weight:bold;
+}
+#total_price img{
+    max-height:50px;
+    max-width:50px;
+}
+.focus{
+    border-radius:10px 10px;
+    background-color:rgb(235,235,235);
+    padding:15px;
+    font-weight:bold;
+}
+
+.header{
+    border-bottom:1px dotted #666; 
+    padding:15px;
+    font-weight:bold;
+}
+.estimator-right-container,.estimator-left-container {
+    text-align:center;
+    margin-top:20px !important;
+    padding:20px !important;
+    padding-bottom:0px;
+}
+.estimator-left-container{
+    background-color:rgb(245,245,245);
+}
+.estimator-main-container{
+    border-radius:5px;
+    margin-top:20px !important;
+    box-shadow: 0px 0px 2px 0px black;
+}
+.logo-container img{
+    width:100%;
+    max-width: 200px;
+}
