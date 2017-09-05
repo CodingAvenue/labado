@@ -51,8 +51,8 @@ class ImportCommand extends ContainerAwareCommand
                 $laundry_service->setLaundryShop($laundry);
                 $em->persist($laundry_service);
             }
-        }
+    }
         $em->flush();
-        $output->writeln(count($laundry_data) . ' laundry shops imported.');
+        $output->writeln(count($laundry_data) . ' laundry shops and services imported.');
     }
 }
