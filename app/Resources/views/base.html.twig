@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <link rel="manifest" href="{{asset('manifest.json')}}">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="Labado">
+        <meta name="apple-mobile-web-app-title" content="Labado">
+        <meta name="msapplication-starturl" content="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!--materialize css -->
-        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" media="screen,projection" />
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper indigo">
+                    <div class="container">
+                        <a href="#" id="back-chevron " class="hide-on-med-and-up"><i class="fa fa-chevron-left"  aria-hidden="true"></i> BACk</a> 
+                        <a href="#!" class="brand-logo ">Labado</a>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+        </div>
+        <ul class="side-nav " id="mobile-demo">
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
 
-        <nav>
-            <div class="nav-wrapper indigo">
-                <div class="container">
-                    <a href="#!" class="brand-logo">Labado</a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo">
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    </ul>
-                </div>    
-            </div>
-        </nav>
- 
         {% block body %}{% endblock %}
         <!-- import javaScript files -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -39,8 +48,8 @@
 
         <!-- custom javaScript files -->
         {% block javascripts %}{% endblock %}
-
-        <script>$(".button-collapse").sideNav(); </script>
+        <script src="https://use.fontawesome.com/be3f0544c8.js"></script>
+        <script>$(".button-collapse").sideNav({ edge: 'right'}); </script>
 
     </body>
 </html>
