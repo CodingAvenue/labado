@@ -8,5 +8,6 @@
             <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
             {% endif %}
         {% endblock fos_user_content %}
+        <a class="btn" href="{{ path('user_info_edit') }}">Continue setting up your information</a>
     </div>
 {% endblock %}
