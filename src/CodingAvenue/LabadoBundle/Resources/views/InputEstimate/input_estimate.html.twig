@@ -4,10 +4,12 @@
 {{ form_start(form,{ 'attr': {'id': 'estimate'} } ) }}
     <div class="row container estimator-main-container">
         <div class="col s12 m4 row estimator-left-container">
-            <div class="logo-container">
+            <div class="col s2 m12 logo-container">
                 <img src="{{asset('images/default_laundry.png')}}">
             </div>
-        {{shop.name}}
+            <div class="col s10 m12">
+                {{shop.name}}
+            </div>
         </div>
         <div class="col s12 m8 estimator-right-container">
             <div class="row header">
@@ -43,8 +45,8 @@
 {% block javascripts %}
     <script>
         var loadingImage = '<img src="{{ asset('img/loading.gif') }}" >';
-
     </script>
+
     <script src="{{asset('js/inputEstimate.js')}}"> </script>
 
 {% endblock %}
