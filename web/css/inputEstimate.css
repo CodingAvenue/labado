@@ -21,11 +21,11 @@
 .header{
     border-bottom:1px dotted #666; 
     padding:15px;
+    padding-top:0px;
     font-weight:bold;
 }
 .estimator-right-container,.estimator-left-container {
     text-align:center;
-    margin-top:20px !important;
     padding:20px !important;
     padding-bottom:0px;
 }
