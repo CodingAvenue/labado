@@ -386,6 +386,11 @@ class LaundryShop
         return $this->placeId;
     }
 
+    /*
+     * Get services 
+     *
+     * @return string
+     */
     public function getServices()
     {
         return $this->services;
