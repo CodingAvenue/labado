@@ -1,6 +1,11 @@
 {
     "name": "Coding Avenue | Labado",
     "short_name": "Labado",
+    "icons": [{
+      "src": "img/LabadoLogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+      }],
     "lang": "en-US",
     "start_url": "/",
     "display": "standalone"
