@@ -28,6 +28,10 @@ services:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
+    
+    CodingAvenue\LabadoSystemBundle\Service\:
+        resource: '../../src/CodingAvenue/LabadoSystemBundle/Service/*'
+        public: true
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
