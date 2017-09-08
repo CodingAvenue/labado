@@ -18,9 +18,7 @@ class BookingController extends Controller
         $finder->findNearby(1,2);
 
         $labadoer = $finder->getLabadoer();
-        dump($labadoer);
-        return $this->render('CodingAvenueLabadoBundle:Booking:index.html.twig', array(
-        ));
+        return $this->render('CodingAvenueLabadoBundle:Booking:index.html.twig', [ "labadoer" => $labadoer ]);
     }
 
 }

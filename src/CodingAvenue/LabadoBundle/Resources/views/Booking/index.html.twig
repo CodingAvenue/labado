@@ -2,6 +2,20 @@
 
 {% block title %}CodingAvenueLabadoBundle:Booking:index{% endblock %}
 
+{% block stylesheets %}
+<link href="{{ asset('css/booking.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-<h1>Welcome to the Booking:index page</h1>
+    <div class="container mg-top">
+        <div class="booking-container">
+            <h5 class="center-align">Your labadoer</h5>
+            <div>
+                <b>Name:</b> {{ labadoer.name }} 
+            </div>
+            <div>
+                <b>Contact Number:</b> {{ labadoer.contactNumber }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
