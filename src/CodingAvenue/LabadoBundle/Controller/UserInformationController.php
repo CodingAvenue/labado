@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class UserInformationController extends Controller
 {
     /**
+     * @Route("/register/confirmed", name="first_time_setup")
      * @Route("/profile/info/edit", name="user_info_edit")
      */
     public function editAction(Request $request)
@@ -29,9 +30,11 @@ class UserInformationController extends Controller
             $user->setLandmark($data->getLandmark());
             $user->setContactNumber($data->getContactNumber());
             $em->flush();
+
+            return $this->redirectToRoute('fos_user_profile_show');
         }
         return $this->render('CodingAvenueLabadoBundle:UserInformation:edit.html.twig', [ 
-           "form" => $form->createView(), 
+           "form" => $form->createView(), "user" => $user, 
         ]);
     }
 
