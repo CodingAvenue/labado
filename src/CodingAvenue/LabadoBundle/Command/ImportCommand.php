@@ -27,6 +27,7 @@ class ImportCommand extends ContainerAwareCommand
         $em = $this->getContainer()->get('doctrine')->getEntityManager();
         foreach ($laundry_data as $list) {
             $data = json_decode(trim($list));
+
             $laundry = new LaundryShop();
             $laundry->setName($data->name);
             $laundry->setAddress($data->address);
@@ -45,6 +46,7 @@ class ImportCommand extends ContainerAwareCommand
                 $laundry->setPhoneNumber($data->phone);
             }
             $em->persist($laundry);
+
             $services = $data->services;
             foreach($services as $types) {
                 $laundry_service = new LaundryService();
