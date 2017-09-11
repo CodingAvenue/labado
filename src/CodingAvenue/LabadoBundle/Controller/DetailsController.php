@@ -14,8 +14,8 @@ class DetailsController extends Controller
      */
     public function indexAction(LaundryShop $laundry_shop)
     {
-        return $this->render('CodingAvenueLabadoBundle:Details:index.html.twig',[
-            'laundry_shop' => $laundry_shop,
+        return $this->render('CodingAvenueLabadoBundle:Details:details.html.twig', [
+            'laundry_shop' => $laundry_shop, 
         ]);
     }
 }

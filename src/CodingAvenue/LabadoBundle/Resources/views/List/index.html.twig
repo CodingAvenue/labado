@@ -1,20 +1,47 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/showList.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/searchLocation.css') }}">
+{% endblock %}
 {% block body %}
-    <div class="container">
-        <div id="load-page">
-            {% include '@CodingAvenueLabado/List/loadingScreen.html.twig' %}
-        </div> 
+    <div class="container" id="stuff-container">
+         <div class="row">
+            <div class="input-field col s12" id="input-location">
+                <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
+            </div>
+        </div>
+
         <div class="row">
+            <div class="col s12" id="map">
+            </div>
+        </div>
+
+        <div class="row" id="display-list">
+            <div id="no-laundryshops-found">
+                <div class="col s12" >
+                    <img id="default-image" src="{{asset('images/default_laundry.png')}}">
+                </div>
+                <div class="col s12">
+                    <h4>No laundry shops found</h4>
+                </div>
+            </div>
             <div class="col s12" id="list-container">
                 <ul id="laundry-list" class="collapsible popout" data-collapsible="accordion">
                 </ul>
             </div>
-        <div>
+        </div>
+
+        <div id="load-page">
+            {% include '@CodingAvenueLabado/List/loadingScreen.html.twig' %}
+        </div> 
+
+        <div id="unable-to-detect" style="display:none">
+            {% include '@CodingAvenueLabado/List/unable_to_detect.html.twig' %}
+        </div>
     </div>    
 {% endblock %}
 
 {% block javascripts %}
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAdrxzUzgYziv65MWKe0kBMozvMQTGf58&libraries=places"></script>
-    <script type="text/javascript" src="js/list/showList.js"></script>
+    <script type="text/javascript" src="{{ asset('js/list/showList.js') }}"></script>
 {% endblock %}
