@@ -1,6 +1,6 @@
 $("#laundry-list").on('click', '.laundry-header', function () {
     var placeId = $(this).data('target');
-    var theUrl = "laundry/" + placeId + "/details";
+    var theUrl = "laundryshop/" + placeId + "/details";
     var body = $(this).next('.collapsible-body');
     $.ajax({
         url: theUrl,
