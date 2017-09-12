@@ -1,33 +1,41 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-signin'}}) }}
-<div class="container row mg-top">
-    <div class="col s12 m6 offset-m3 register-container">
-        <h5 class="center-align">REGISTER</h5>
-        <div class="input-field">
-            <i class="material-icons prefix">email</i>
-            {{ form_widget(form.email) }}
-            {{ form_label(form.email) }}
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix">account_circle</i>
-            {{ form_widget(form.username) }}
-            {{ form_label(form.username) }}
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix">vpn_key</i>
-            {{ form_widget(form.plainPassword.first) }}
-            {{ form_label(form.plainPassword.first) }}
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix">enhanced_encryption</i>
-            {{ form_widget(form.plainPassword.second) }}
-            {{ form_label(form.plainPassword.second) }}
-        </div>
-        {{ form_widget(form._token) }}
+    {{form_errors(form)}}
+    {% if not form.vars.valid|length %}
+        {{dump(error)}}
+    {% endif %}
+    <div class="container row mg-top">
+        <div class="col s12 m6 offset-m3 register-container">
+            <h5 class="center-align">REGISTER</h5>
+            <div class="input-field">
+                <i class="material-icons prefix">email</i>
+                {{ form_widget(form.email,{ "attr": { "class": "validate" } }) }}
+                {{ form_label(form.email,'Email',{ "label_attr": { "data-error": "a" } }) }}
+                <span>{{ form_errors(form.email) }}</span>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">account_circle</i>
+                {{ form_widget(form.username) }}
+                {{ form_label(form.username) }}
+                <span>{{ form_errors(form.username) }}</span>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">vpn_key</i>
+                {{ form_widget(form.plainPassword.first) }}
+                {{ form_label(form.plainPassword.first) }}
+                <span>{{ form_errors(form.plainPassword.first) }}</span>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">enhanced_encryption</i>
+                {{ form_widget(form.plainPassword.second) }}
+                {{ form_label(form.plainPassword.second) }}
+                <span>{{ form_errors(form.plainPassword.second) }}</span>
+            </div>
+            {{ form_widget(form._token) }}
 
-        <input type="submit" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }}" class="btn btn-lg btn-primary btn-block right" />
+            <input type="submit" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }}" class="btn btn-lg btn-primary btn-block right" />
+        </div>
     </div>
-</div>
-
+    {{ form_rest(form) }}
 {{ form_end(form) }}
