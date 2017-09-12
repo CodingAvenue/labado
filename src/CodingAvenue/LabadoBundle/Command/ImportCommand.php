@@ -1,5 +1,4 @@
 <?php
-
 namespace CodingAvenue\LabadoBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -8,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use CodingAvenue\LabadoBundle\Entity\LaundryShop;
+use CodingAvenue\LabadoBundle\Entity\LaundryService;
 
 class ImportCommand extends ContainerAwareCommand
 {
@@ -24,12 +24,11 @@ class ImportCommand extends ContainerAwareCommand
     {
         $path = $input->getArgument('path');
         $laundry_data = file($path);
-
         $em = $this->getContainer()->get('doctrine')->getEntityManager();
-        foreach($laundry_data as $list){
-            $data = json_decode($list);
+        foreach ($laundry_data as $list) {
+            $data = json_decode(trim($list));
 
-            $laundry = new LaundryShop();         
+            $laundry = new LaundryShop();
             $laundry->setName($data->name);
             $laundry->setAddress($data->address);
             $laundry->setLogo($data->icon);
@@ -46,12 +45,18 @@ class ImportCommand extends ContainerAwareCommand
             if (property_exists($data, 'phone')) {
                 $laundry->setPhoneNumber($data->phone);
             }
-
             $em->persist($laundry);
+
+            $services = $data->services;
+            foreach($services as $types) {
+                $laundry_service = new LaundryService();
+                $laundry_service->setType($types->type);
+                $laundry_service->setPricePerKilo($types->price_per_kilo);
+                $laundry_service->setLaundryShop($laundry);
+                $em->persist($laundry_service);
+            }
         }
         $em->flush();
-
-        $output->writeln(count($laundry_data) . ' laundry shops imported.');
+        $output->writeln(count($laundry_data) . ' laundry shops and services imported.');
     }
-
 }
