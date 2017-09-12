@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{shop.getName() }}{% endblock %}
+{% block title %}{{ shop.name }} | Estimate {% endblock %}
 {% block body %}
     {{ form_start(form,{ 'attr': {'id': 'estimate'} } ) }}
     <div class="container labado_body_container">
@@ -28,7 +28,6 @@
                 <input type="submit" value="Proceed" class="waves-effect waves-light btn-large" >
             </div>
             <div class="row col s6 right" id="total_price">
-                
             </div>
         </div>
     </div>
