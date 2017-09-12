@@ -4,18 +4,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/searchLocation.css') }}">
 {% endblock %}
 {% block body %}
-    <div class="container" id="stuff-container">
-         <div class="row">
-            <div class="input-field col s12" id="input-location">
-                <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
-            </div>
+    <div class="row">
+        <div class="col s12" id="map">
         </div>
-
-        <div class="row">
-            <div class="col s12" id="map">
-            </div>
-        </div>
-
+    </div>
+    <div class="container">
+        <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
+        <a id="pac-btn" class="waves-effect waves-light btn indigo">Set location</a>
         <div class="row" id="display-list">
             <div id="no-laundryshops-found">
                 <div class="col s12" >
@@ -32,7 +27,7 @@
         </div>
 
         <div id="load-page">
-            {% include '@CodingAvenueLabado/List/loadingScreen.html.twig' %}
+            {% include '@CodingAvenueLabado/List/loading_screen.html.twig' %}
         </div> 
 
         <div id="unable-to-detect" style="display:none">

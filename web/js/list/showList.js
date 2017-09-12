@@ -47,6 +47,7 @@ $(function () {
             radius: 800,
             types: ['laundry'],
         };
+
         service.nearbySearch(requirements, listResult);
     }
 
@@ -67,35 +68,40 @@ $(function () {
             $('#list-container').show();
             renderList(results);
         } else {
-            // TODO: Display no laundry shops found nearby.
             $('#no-laundryshops-found').show();
         }
->>>>>>> 8a4c8dc... Implement manual input of location
     }
-
-<<<<<<< HEAD
-function failure() {
-    $('#list-container').html("<p>Unable to locate.</p>");
-}  
-=======
 
     function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -33.8688, lng: 151.2195 },
+            center: { lat: 10.3402623, lng: 123.94155180000007 },
             zoom: 13,
+            mapTypeControl: false,
+            fullscreenControl: false,
+            disableDefaultUI: true,
             mapTypeId: 'roadmap'
         });
 
+        var nav_size = $('nav').height();
+        var window_size = $(window).height();
+        $('#map').height(window_size - nav_size);
+
         var input = document.getElementById('pac-input');
+        var btn = document.getElementById('pac-btn');
         var searchBox = new google.maps.places.SearchBox(input);
 
-        map.addListener('bounds_changed', function () {
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(btn);
+
+        map.addListener('bounds_changed', function (e) {
             searchBox.setBounds(map.getBounds());
+            $('#pac-input').show();
+            $('#pac-btn').show();
         });
 
-        searchBox.addListener('places_changed', function () {
+        searchBox.addListener('places_changed', function (s) {
             var places = searchBox.getPlaces();
-            if (places.length == 0) {
+            if (places.length == 0 || places.length > 1) {
                 return;
             }
 
@@ -121,22 +127,22 @@ function failure() {
                     lng = marker.getPosition().lng();
                 });
 
-                coords = new google.maps.LatLng(lat, lng);
                 function toggleBounce() {
                     if (marker.getAnimation() !== null) {
                         marker.setAnimation(null);
                     } else {
                         marker.setAnimation(google.maps.Animation.BOUNCE);
                     }
-
-                    if (window.confirm("Confirm location")) {
-                        initMap(coords);
-                        findLaundry(coords);
-                        $('#display-list').show();
-                        $('#map').hide();
-                        $('#input-location').hide();
-                    }
                 }
+
+                $("#pac-btn").click(function () {
+                    coords = new google.maps.LatLng(lat,lng);
+                    initMap(coords);
+                    findLaundry(coords);
+                    $('#display-list').show();
+                    $('#map').hide();
+                    $('#pac-input').hide();
+                });
 
                 if (place.geometry.viewport) {
                     // Only geocodes have viewport.
@@ -148,8 +154,8 @@ function failure() {
             map.fitBounds(bounds);
 
         });
-
     }
+
 
     $("#laundry-list").on('click', '.laundry-header', function () {
         var placeId = $(this).data('target');
@@ -166,10 +172,9 @@ function failure() {
     });
 
     $("#unable-to-detect").on('click', '#manual-button', function () {
-        $('#map').show();
-        $('#input-location').show();
         $('#unable-to-detect').hide();
         initAutocomplete();
+        $('#map').show();
     });
 
 });
