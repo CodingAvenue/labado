@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class DetailsController extends Controller
 {
     /**
-     * @Route("laundryshop/{id}/details", name="laundryDetails")
+     * @Route("laundryshop/{placeId}/details", name="laundryDetails")
      */
     public function indexAction(LaundryShop $laundry_shop)
     {
