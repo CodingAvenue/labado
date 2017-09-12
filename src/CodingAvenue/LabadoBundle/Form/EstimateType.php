@@ -11,7 +11,7 @@ class EstimateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         foreach($options['services'] as $index => $service) {
-            $builder->add("service".$index, IntegerType::class, ['required' => false]);
+            $builder->add("service{$index}", IntegerType::class, ['required' => false]);
         }
     }
     public function configureOptions(OptionsResolver $resolver)
