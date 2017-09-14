@@ -53,7 +53,9 @@ function success(position){
 function renderList(laundry_shops){
     var ul_id = $('#laundry-list');            
         laundry_shops.map(function(laundry){                    
-        var row = "<li><div class=\"laundry-header collapsible-header\" data-target="+laundry.place_id+"><i class=\"material-icons\">local_laundry_service</i>"+laundry.name+"</div> <div class=\"collapsible-body\"></div></li>";
+        var row = '<li><div class="laundry-header collapsible-header" data-target='+laundry.place_id
+        +'><i class="material-icons">local_laundry_service</i><p><span>'+laundry.name+'</span><span id="vici">'
+        +laundry.vicinity+'</span></p></div><div class="collapsible-body"></div></li>';
         ul_id.append(row);
     });
 }

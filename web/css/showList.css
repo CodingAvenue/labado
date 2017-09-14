@@ -21,3 +21,10 @@
     max-width: 120px;
     width: 100%;
 }
+#vici{
+   font-size: 10px; 
+}
+
+p span{
+    display: block;
+}
