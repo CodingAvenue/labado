@@ -82,6 +82,12 @@ $(function () {
             mapTypeId: 'roadmap'
         });
 
+        var marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+        });
+
         var nav_size = $('nav').height();
         var window_size = $(window).height();
         $('#map').height(window_size - nav_size);
@@ -111,16 +117,9 @@ $(function () {
                     console.log("Returned place contains no geometry");
                     return;
                 }
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    title: place.name,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP,
-                    position: place.geometry.location
-                });
-                var lat = marker.getPosition().lat();
-                var lng = marker.getPosition().lng();
+                marker.setPosition(new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()));
+                lat = marker.getPosition().lat();
+                lng = marker.getPosition().lng();
                 marker.addListener('click', toggleBounce);
                 marker.addListener('position_changed', function () {
                     lat = marker.getPosition().lat();
@@ -135,15 +134,6 @@ $(function () {
                     }
                 }
 
-                $("#pac-btn").click(function () {
-                    coords = new google.maps.LatLng(lat,lng);
-                    initMap(coords);
-                    findLaundry(coords);
-                    $('#display-list').show();
-                    $('#map').hide();
-                    $('#pac-input').hide();
-                });
-
                 if (place.geometry.viewport) {
                     // Only geocodes have viewport.
                     bounds.union(place.geometry.viewport);
@@ -156,6 +146,14 @@ $(function () {
         });
     }
 
+    $("#pac-btn").click(function () {
+        coords = new google.maps.LatLng(lat, lng);
+        initMap(coords);
+        findLaundry(coords);
+        $('#display-list').show();
+        $('#map').hide();
+        $('#pac-input').hide();
+    });
 
     $("#laundry-list").on('click', '.laundry-header', function () {
         var placeId = $(this).data('target');
