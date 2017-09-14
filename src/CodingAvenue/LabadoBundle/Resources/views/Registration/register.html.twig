@@ -9,9 +9,16 @@
 {% endblock body %}
 {% block javascripts %}
 <script>
-    var errors = ("{{errors['email']}}"); 
+{% if errors %}
+	var str = "";
+	{% for error in errors %}
+		str += "<li>{{error}}</li>";
+	{% endfor %}
+	$('#ErrorMessage').css("display","block");
+	$("#ErrorMessage").html(str);
+{% endif %}
 </script>
-
 <script src="{{ asset('js/ErrorHandling/registration.js') }}">
+	
 </script>
 {% endblock %}
