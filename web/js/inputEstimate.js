@@ -6,7 +6,7 @@
         $('#total_price').html(loadingImage);
         
         var val = parseFloat($(this).val()) || 0;
-        var ans = rate*val;
+        var ans = rate * val;
 
         $(this).parent().parent().find('.result:first').html("&#8369;"+ans);
         var amountNumber = 1;

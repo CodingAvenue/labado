@@ -10,12 +10,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class DetailsController extends Controller
 {
     /**
-     * @Route("laundry/{placeId}/details", name="laundryDetails")
+     * @Route("laundryshop/{placeId}/details", name="laundryDetails")
      */
     public function indexAction(LaundryShop $laundry_shop)
     {
-        return $this->render('CodingAvenueLabadoBundle:Details:details.html.twig', [
-            'laundry_shop' => $laundry_shop, 
+        return $this->render('CodingAvenueLabadoBundle:Details:index.html.twig', [
+            'laundry_shop' => $laundry_shop,
         ]);
     }
 }

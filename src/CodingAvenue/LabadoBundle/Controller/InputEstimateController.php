@@ -12,12 +12,13 @@ use CodingAvenue\LabadoBundle\Entity\LaundryServices;
 class InputEstimateController extends Controller
 {
     /**
-     * @Route("laundryshop/{id}/estimate")
+     * @Route("/laundryshop/{id}/estimate", name="inputEstimate")
      */
     public function inputEstimateAction(LaundryShop $shop)
     {
         $form = $this->createForm(EstimateType::class,null, ['services' => $shop->getServices()]);
-        return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig',[ "form" => $form->createView(),"shop"=>$shop]);
+
+        return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', ["form" => $form->createView() ,"shop" => $shop]);
     }
 
 }

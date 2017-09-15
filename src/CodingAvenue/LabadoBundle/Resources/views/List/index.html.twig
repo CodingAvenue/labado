@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/showList.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/searchLocation.css') }}">
 {% endblock %}
+
 {% block body %}
     <div class="row">
         <div class="col s12" id="map">
         </div>
     </div>
+
     <div class="container">
         <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
         <a id="pac-btn" class="waves-effect waves-light btn indigo">Set location</a>
