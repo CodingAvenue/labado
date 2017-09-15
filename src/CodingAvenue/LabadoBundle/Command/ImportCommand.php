@@ -1,4 +1,5 @@
 <?php
+
 namespace CodingAvenue\LabadoBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
