@@ -1,5 +1,7 @@
 <?php
+
 namespace CodingAvenue\LabadoBundle\Command;
+
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -7,6 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use CodingAvenue\LabadoBundle\Entity\LaundryShop;
 use CodingAvenue\LabadoBundle\Entity\LaundryService;
+
 class ImportCommand extends ContainerAwareCommand
 {
     protected function configure()
@@ -17,13 +20,15 @@ class ImportCommand extends ContainerAwareCommand
             ->addArgument('path', InputArgument::OPTIONAL, 'Path to the import file')
         ;
     }
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $path = $input->getArgument('path');
         $laundry_data = file($path);
         $em = $this->getContainer()->get('doctrine')->getEntityManager();
-        foreach($laundry_data as $list){
+        foreach ($laundry_data as $list) {
             $data = json_decode(trim($list));
+
             $laundry = new LaundryShop();
             $laundry->setName($data->name);
             $laundry->setAddress($data->address);
@@ -42,9 +47,9 @@ class ImportCommand extends ContainerAwareCommand
                 $laundry->setPhoneNumber($data->phone);
             }
             $em->persist($laundry);
+
             $services = $data->services;
-            foreach($services as $types)
-            {
+            foreach($services as $types) {
                 $laundry_service = new LaundryService();
                 $laundry_service->setType($types->type);
                 $laundry_service->setPricePerKilo($types->price_per_kilo);
@@ -53,6 +58,6 @@ class ImportCommand extends ContainerAwareCommand
             }
         }
         $em->flush();
-        $output->writeln(count($laundry_data) . ' laundry shops imported.');
+        $output->writeln(count($laundry_data) . ' laundry shops and services imported.');
     }
 }

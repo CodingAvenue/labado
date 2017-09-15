@@ -8,10 +8,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EstimateType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder,array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        foreach($options['services'] as $index => $service){
-            $builder->add("service".$index, IntegerType::class, ['required' => false]);
+        foreach($options['services'] as $index => $service) {
+            $builder->add("service{$index}", IntegerType::class, ['required' => false]);
         }
     }
     public function configureOptions(OptionsResolver $resolver)

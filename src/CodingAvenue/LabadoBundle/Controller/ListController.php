@@ -8,10 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ListController extends Controller
 {
     /**
-     * @Route("laundryshops")
+     * @Route("laundryshop", name="laundryshop")
      */
     public function indexAction()
     {
-       return $this->render('CodingAvenueLabadoBundle:List:list.html.twig');
+       return $this->render('CodingAvenueLabadoBundle:List:index.html.twig');
     }
 }
