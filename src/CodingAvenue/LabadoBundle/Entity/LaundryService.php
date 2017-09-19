@@ -121,4 +121,3 @@ class LaundryService
         return $this->laundryShop;
     }
 }
-
