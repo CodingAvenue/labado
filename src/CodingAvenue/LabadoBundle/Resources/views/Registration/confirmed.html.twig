@@ -2,7 +2,7 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block body%}
+{% block body %}
     <div class="container">
         {% block fos_user_content %}
             <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
