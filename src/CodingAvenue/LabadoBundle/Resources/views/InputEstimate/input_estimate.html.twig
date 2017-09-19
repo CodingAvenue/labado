@@ -19,24 +19,22 @@
                     <div class="col s4">Price</div>
                     <div class="col s4">Est. Weight</div>
                 </div>
-
                 {% for index, service in shop.services %}
-                <div class="row rowtype"> 
-                    <div class="col s4">
-                        {{ service.getType() }}
+                    <div class="row rowtype"> 
+                        <div class="col s4">
+                            {{ service.getType() }}
+                        </div>
+                        <div class="col s4">
+                            <div class="result">&#8369;0.00</div> 
+                        </div>
+                        <div class="col s4">
+                            {{ form_widget(form['service' ~ index],{ 'attr': { 'data-rate': service.getPricePerKilo(), 'placeholder': 'Weight in Kilograms' } } ) }}
+                        </div>
                     </div>
-                    <div class="col s4">
-                        <div class="result">&#8369;0.00</div> 
-                    </div>
-                    <div class="col s4">
-                        {{ form_widget(form['service' ~ index],{ 'attr': { 'data-rate': service.getPricePerKilo(), 'placeholder': 'Weight in Kilograms' } } ) }}
-                    </div>
-                </div>
                 {% endfor %}
-
                 <span class="row col s12 right" id="total_price"></span>
                 <div class="row col s12 ">
-                <input type="submit" value="Proceed" class="right aligned waves-effect waves-light btn-large" >
+                    <input type="submit" value="Proceed" class="right aligned waves-effect waves-light btn-large" >
                 </div>
             </div>
         </div>
