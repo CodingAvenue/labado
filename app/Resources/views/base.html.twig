@@ -1,60 +1,69 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <link rel="manifest" href="{{asset('manifest.json')}}">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="Labado">
+        <meta name="apple-mobile-web-app-title" content="Labado">
+        <meta name="msapplication-starturl" content="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" sizes="192x192" href="{{asset('img/LabadoLogo.png')}}">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!--materialize css -->
-        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" media="screen,projection" />
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-
-        <nav>
-            <div class="nav-wrapper indigo">
-                <div class="container">
-                    <a href="#!" class="brand-logo">Labado</a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                    <li>
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a class='dropdown-button' href='#' data-activates='dropdown1'>{{app.user.username}}</a>
-                          <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                            <li><a href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
-                            <li><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">logout</a></li>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper indigo">
+                    <div class="container">
+                        <a href="#!" class="brand-logo">Labado</a>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                        <li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <a class='dropdown-button' href='#' data-activates='dropdown1'>{{app.user.username}}</a>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
+                                <li><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">logout</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
+                        {% endif %}
                         </ul>
-                    </li>
-                    {% else %}
-                        <li><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
-                        <li><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
-                    {% endif %}
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <li><a class='dropdown-button' href='#' data-activates='dropdown2'>{{app.user.username}}</a><li>
-                          <!-- Dropdown Structure -->
-                        <ul id='dropdown2' class='dropdown-content'>
-                            <li><a href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
-                            <li><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">logout</a></li>
-                        </ul>
+                        
+                    </div>    
+                </div>
+            </nav>
+        </div>
+        <ul class="side-nav" id="mobile-demo">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li><a class='dropdown-button' href='#' data-activates='dropdown2'>{{app.user.username}}</a><li>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown2' class='dropdown-content'>
+                <li><a href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
+                <li><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">logout</a></li>
+            </ul>
+            {% else %}
+                <li><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
+            {% endif %}
+        </ul>
 
-                    {% else %}
-                        <li><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
-                        <li><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
-                    {% endif %}
-                    </ul>
-                </div>    
-            </div>
-        </nav>
- 
         {% block body %}{% endblock %}
         <!-- import javaScript files -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -64,8 +73,8 @@
 
         <!-- custom javaScript files -->
         {% block javascripts %}{% endblock %}
-
-        <script>$(".button-collapse").sideNav(); </script>
+        <script src="https://use.fontawesome.com/be3f0544c8.js"></script>
+        <script>$(".button-collapse").sideNav({ edge: 'right'}); </script>
 
     </body>
 </html>
