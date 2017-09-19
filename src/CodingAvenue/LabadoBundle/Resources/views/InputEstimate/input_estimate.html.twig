@@ -1,45 +1,46 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}{{ shop.name }} | Estimate {% endblock %}
+
 {% block body %}
-{{ form_start(form,{ 'attr': {'id': 'estimate'} } ) }}
-    <div class="row container estimator-main-container">
-        <div class="col s12 m4 row estimator-left-container">
-            <div class="col s2 m12 logo-container">
-                <img src="{{asset('images/default_laundry.png')}}">
+    {{ form_start(form,{ 'attr': {'id': 'estimate'} } ) }}
+        <div class="row container estimator-main-container">
+            <div class="col s12 m4 row estimator-left-container">
+                <div class="col s2 m12 logo-container">
+                    <img src="{{asset('images/default_laundry.png')}}">
+                </div>
+                <div class="col s10 m12">
+                    {{shop.name}}
+                </div>
             </div>
-            <div class="col s10 m12">
-                {{shop.name}}
+            <div class="col s12 m8 estimator-right-container">
+                <div class="row header">
+                    <div class="col s4 bold">Type</div>
+                    <div class="col s4">Price</div>
+                    <div class="col s4">Est. Weight</div>
+                </div>
+
+                {% for index, service in shop.services %}
+                <div class="row rowtype"> 
+                    <div class="col s4">
+                        {{ service.getType() }}
+                    </div>
+                    <div class="col s4">
+                        <div class="result">&#8369;0.00</div> 
+                    </div>
+                    <div class="col s4">
+                        {{ form_widget(form['service' ~ index],{ 'attr': { 'data-rate': service.getPricePerKilo(), 'placeholder': 'Weight in Kilograms' } } ) }}
+                    </div>
+                </div>
+                {% endfor %}
+
+                <span class="row col s12 right" id="total_price"></span>
+                <div class="row col s12 ">
+                <input type="submit" value="Proceed" class="right aligned waves-effect waves-light btn-large" >
+                </div>
             </div>
         </div>
-        <div class="col s12 m8 estimator-right-container">
-            <div class="row header">
-                <div class="col s4 bold">Type</div>
-                <div class="col s4">Price</div>
-                <div class="col s4">Est. Weight</div>
-            </div>
-
-            {% for index, service in shop.services %}
-            <div class="row rowtype"> 
-                <div class="col s4">
-                    {{ service.getType() }}
-                </div>
-                <div class="col s4">
-                    <div class="result">&#8369;0.00</div> 
-                </div>
-                <div class="col s4">
-                    {{ form_widget(form['service' ~ index],{ 'attr': { 'data-rate': service.getPricePerKilo(), 'placeholder': 'Weight in Kilograms' } } ) }}
-                </div>
-            </div>
-            {% endfor %}
-
-            <span class="row col s12 right" id="total_price"></span>
-            <div class="row col s12 ">
-            <input type="submit" value="Proceed" class="right aligned waves-effect waves-light btn-large" >
-            </div>
-        </div>
-    </div>
-{{ form_end(form) }}
-
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block javascripts %}
@@ -48,8 +49,8 @@
     </script>
 
     <script src="{{asset('js/inputEstimate.js')}}"> </script>
-
 {% endblock %}
+
 {% block stylesheets %}
     <link href="{{asset('css/inputEstimate.css')}}" rel="stylesheet">
 {% endblock %}
