@@ -18,7 +18,7 @@ class RegistrationErrorDetectorController extends Controller
     {
         $data = $request->getContent();
 
-        if($request->get('_route') === 'check_email') {
+        if ($request->get('_route') === 'check_email') {
             $user = $this->getDoctrine()
                 ->getRepository(User::class)
                 ->findByEmail($data);
