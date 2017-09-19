@@ -24,5 +24,4 @@ class InputEstimateController extends Controller
             return $this->redirectToRoute('fos_user_security_login', [ "error" => "You Need to Login" ]);
         }
     }
-
 }

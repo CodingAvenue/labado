@@ -21,6 +21,5 @@ class DetailsController extends Controller
         } else {
             return $this->redirectToRoute('fos_user_security_login', [ "error" => "You Need to Login" ]);
         }
-        
     }
 }
