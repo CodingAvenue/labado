@@ -58,12 +58,12 @@
                 <li class="divider"></li>
                 <li><a href="{{ path('fos_user_security_logout') }}">logout</a></li>
             </ul>
-
             {% else %}
                 <li><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
                 <li><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
             {% endif %}
         </ul>
+
         {% block body %}{% endblock %}
         <!-- import javaScript files -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
