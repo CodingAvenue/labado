@@ -1,5 +1,5 @@
 <?php
-namespace CodingAvenue\LabadoSystemBundle\Repositories;
+namespace CodingAvenue\LabadoSystemBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
 
