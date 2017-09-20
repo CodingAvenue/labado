@@ -29,7 +29,7 @@ class RegistrationController extends BaseController
         $event = new GetResponseUserEvent($user, $request);
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
 
-        if (null !== $event->getResponse()) {
+        if ($event->getResponse() !== null ) {
             return $event->getResponse();
         }
 
@@ -40,10 +40,12 @@ class RegistrationController extends BaseController
         $error = $form->getErrors(true);
         $errors = [];
         if ($form->isSubmitted()) {
-            foreach($error as $err) {
+
+            foreach($error as $err){
                 $errors[$err->getOrigin()->getConfig()->getName()] = $err->getMessage();
             }
             
+
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
@@ -54,7 +56,7 @@ class RegistrationController extends BaseController
                     sprintf("New user registration: %s", $user)
                 );
 
-                if (null === $response = $event->getResponse()) {
+                if (($response = $event->getResponse()) === null) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
@@ -67,7 +69,7 @@ class RegistrationController extends BaseController
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
 
-            if (null !== $response = $event->getResponse()) {
+            if (($response = $event->getResponse()) !== null) {
                 return $response;
             }
         }

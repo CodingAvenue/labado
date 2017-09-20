@@ -14,12 +14,8 @@ class DetailsController extends Controller
      */
     public function indexAction(LaundryShop $laundry_shop)
     {
-        if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            return $this->render('CodingAvenueLabadoBundle:Details:index.html.twig', [
+        return $this->render('CodingAvenueLabadoBundle:Details:index.html.twig', [
             'laundry_shop' => $laundry_shop,
-            ]);
-        } else {
-            return $this->redirectToRoute('fos_user_security_login', [ "error" => "You Need to Login" ]);
-        }
+        ]);
     }
 }
