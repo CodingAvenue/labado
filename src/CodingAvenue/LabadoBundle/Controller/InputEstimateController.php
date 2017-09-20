@@ -5,8 +5,7 @@ namespace CodingAvenue\LabadoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use CodingAvenue\LabadoBundle\Form\EstimateType;
-use CodingAvenue\LabadoBundle\Entity\LaundryShop;
-use CodingAvenue\LabadoBundle\Entity\LaundryServices;
+use CodingAvenue\LabadoSystemBundle\Document\LaundryShop;
 
 
 class InputEstimateController extends Controller

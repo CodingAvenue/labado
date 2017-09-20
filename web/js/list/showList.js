@@ -12,7 +12,7 @@ $(function () {
             maximumAge: 0
         };
 
-        navigator.geolocation.watchPosition(detectLocation, inputLocationManually, options);
+        navigator.geolocation.getCurrentPosition(detectLocation, inputLocationManually, options);
     } else {
         inputLocationManually();
     }
@@ -169,7 +169,7 @@ $(function () {
         });
     });
 
-    $("#unable-to-detect").on('click', '#manual-button', function () {
+    $(".container").on('click', '#manual-button', function () {
         $('#unable-to-detect').hide();
         initAutocomplete();
         $('#map').show();

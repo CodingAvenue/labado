@@ -4,8 +4,7 @@ namespace CodingAvenue\LabadoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use CodingAvenue\LabadoBundle\Entity\LaundryShop;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use CodingAvenue\LabadoSystemBundle\Document\LaundryShop;
 
 class DetailsController extends Controller
 {

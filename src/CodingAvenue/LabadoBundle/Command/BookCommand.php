@@ -15,18 +15,13 @@ class BookCommand extends ContainerAwareCommand
         $this
             ->setName('book')
             ->setDescription('...')
-            ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description')
+            ->addArgument('booking_request_id', InputArgument::OPTIONAL, 'BookingRequest ID');
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $argument = $input->getArgument('argument');
-
-        if ($input->getOption('option')) {
-            // ...
-        }
+        $booking_request_id = $input->getArgument('booking_request_id');
 
         $output->writeln('Command result.');
     }
