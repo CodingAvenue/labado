@@ -53,7 +53,7 @@ class RegistrationController extends BaseController
                     sprintf("New user registration: %s", $user)
                 );
 
-                if ($response = $event->getResponse() === null) {
+                if (($response = $event->getResponse()) === null) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
@@ -69,7 +69,7 @@ class RegistrationController extends BaseController
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
 
-            if ($response = $event->getResponse() !== null) {
+            if (($response = $event->getResponse()) !== null) {
                 return $response;
             }
         }
