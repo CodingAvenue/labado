@@ -23,7 +23,9 @@ $(document).ready(function() {
                             target.addClass("valid");
                             target.next('.formlabel').attr('data-error', (url == "/registration/exist/email" ) ? 'Invalid Email' : 'Username must be atleast 4 characters' );
                         }
-                    },
+                    }
+                }).fail(function (e){
+                    console.log("Something went wrong");
                 });
             }, 500);
         }
