@@ -26,6 +26,25 @@
     max-width: 120px;
     width: 100%;
 }
+
+#display-list {
+    display: none;
+}
+
+#no-laundryshops-found {
+    text-align: center;
+    display: none;
+}
+
+#default-image {
+    width: 100px;
+}    
+
+#gps-off {
+    font-size: 70px;
+    margin-top: 24px;
+}
+
 #vici {
    font-size: 10px; 
 }
