@@ -60,7 +60,6 @@ $(function () {
                 + laundry.name + '</span><span id="vici">'
                 + laundry.vicinity + '</span></p></div><div class="collapsible-body"></div></li>';
         });
-            console.log("w");
             ul_id.append(row);
     }
 
