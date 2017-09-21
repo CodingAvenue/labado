@@ -6,7 +6,7 @@ $(document).ready(function() {
             dataType: "json",
             method: 'post',
             data: target.val(),
-            url: url,
+            url: "asd",
             success: function(data) {
                 if (data['status']) {
                     target.addClass("invalid");
@@ -18,7 +18,9 @@ $(document).ready(function() {
                 }
             }
         }).fail(function (e) {
-            console.log("Something went wrong");
+            target.addClass("invalid");
+            target.next('.formlabel').attr('data-error', "Something went wrong. Can't Validate");
+
         });
     });
 
