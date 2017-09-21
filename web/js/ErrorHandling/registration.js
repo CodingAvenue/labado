@@ -6,7 +6,7 @@ $(document).ready(function() {
             dataType: "json",
             method: 'post',
             data: target.val(),
-            url: url,
+            url: "", 
             success: function(data) {
                 if (data['status']) {
                     target.addClass("invalid");
@@ -18,8 +18,7 @@ $(document).ready(function() {
                 }
             }
         }).fail(function (e) {
-            target.addClass("invalid");
-            target.next('.formlabel').attr('data-error', "Can't validate this field right now");
+            //Debugger, do something here in fail
         });
     });
 
