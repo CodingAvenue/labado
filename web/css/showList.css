@@ -8,14 +8,6 @@
     width: 100%;
 }
 
-#stuff-container {
-    margin-top: 20px;
-}
-
-#unable-to-detect img {
-    max-width: 100px;
-}
-
 #unable-to-detect {
     padding-top: 20px;
     box-shadow: 1px 1px 1px black;
