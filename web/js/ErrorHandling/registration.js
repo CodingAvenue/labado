@@ -6,7 +6,7 @@ $(document).ready(function() {
             dataType: "json",
             method: 'post',
             data: target.val(),
-            url: "", 
+            url: url, 
             success: function(data) {
                 if (data['status']) {
                     target.addClass("invalid");
