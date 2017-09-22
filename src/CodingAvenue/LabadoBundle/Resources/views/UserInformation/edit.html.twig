@@ -2,13 +2,9 @@
 
 {% block title %}CodingAvenueLabadoBundle:UserInformation:edit{% endblock %}
 
-{% block stylesheets %}
-<link href="{{ asset('css/user_information.css') }}" rel="stylesheet">
-{% endblock %}
-
 {% block body %}
     <div class="container row mg-top">
-        <div class="col s12 m6 offset-m3 user-information-container">
+        <div class="col s12 m6 offset-m3 labado-item-container">
             {% if app.request.get('_route') == "first_time_setup" %}
                 <p class="center-align">Congrats {{ app.user.username }}, your accout has been successfuly confirmed. Please fill the fields with your information</p>
             {% else %}

@@ -43,7 +43,7 @@ class ChangePasswordController extends BaseController
 
         $error = $form->getErrors(true);
         $errors = [];
-        if($error){
+        if ($error) {
             foreach($error as $err){
                 $errors[$err->getOrigin()->getConfig()->getName()] = $err->getMessage();
             }
@@ -64,7 +64,9 @@ class ChangePasswordController extends BaseController
                 $response = new RedirectResponse($url);
             }
 
-            $dispatcher->dispatch(FOSUserEvents::CHANGE_PASSWORD_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+            $dispatcher->dispatch(FOSUserEvents::CHANGE_PASSWORD_COMPLETED,
+                new FilterUserResponseEvent($user, $request, $response)
+            );
 
             return $response;
         }
