@@ -17,5 +17,4 @@ class InformationType extends AbstractType
             ->add('landmark', TextType::class)
             ->add('contact_number', IntegerType::class);
     }
-    
 }
