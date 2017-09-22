@@ -1,34 +1,25 @@
 $(document).ready(function() {
-    var timeout = null
-
-    $("#registration").on('keyup focusout', '.validate', function(e) {
-        // this will avoid the keyup key 9 which is the "Tab" key 
-        // this is to avoid double request when the focusout event triggered cause of keyup event
-        if (!(e.type == 'keyup' && e.which == 9)) {
-            target = $(this);
-            var url = (target.attr('id') == "fos_user_registration_form_email") ? "/registration/exist/email" : "/registration/exist/username";
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                $.ajax({
-                    dataType: "json",
-                    method: 'post',
-                    data: target.val(),
-                    url: url,
-                    success: function(data) {
-                        if (data['status']) {
-                            target.addClass("invalid");
-                            target.removeClass("valid");
-                            target.next('.formlabel').attr('data-error', target.next('.formlabel').text() + ' Already Taken');
-                        } else {
-                            target.addClass("valid");
-                            target.next('.formlabel').attr('data-error', (url == "/registration/exist/email" ) ? 'Invalid Email' : 'Username must be atleast 4 characters' );
-                        }
-                    },
-                }).fail(function (e) {
-                    console.log("Something went wrong");
-                });
-            }, 500);
-        }
+    $("#registration").on('focusout', '.validate', function(e) {
+        target = $(this);
+        var url = (target.attr('id') == "fos_user_registration_form_email") ? "/registration/exist/email" : "/registration/exist/username";
+        $.ajax({
+            dataType: "json",
+            method: 'post',
+            data: target.val(),
+            url: url, 
+            success: function(data) {
+                if (data['status']) {
+                    target.addClass("invalid");
+                    target.removeClass("valid");
+                    target.next('.formlabel').attr('data-error', target.next('.formlabel').text() + ' Already Taken');
+                } else {
+                    target.addClass("valid");
+                    target.next('.formlabel').attr('data-error', (url == "/registration/exist/email" ) ? 'Invalid Email' : 'Username must be atleast 4 characters' );
+                }
+            }
+        }).fail(function (e) {
+            //Debugger, do something here in fail
+        });
     });
 
     $("#registration").on('focusout keyup', '.password-input', function(e) {
