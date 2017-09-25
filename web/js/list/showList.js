@@ -119,12 +119,10 @@ $(function () {
                     return;
                 }
                 marker.setPosition(new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()));
-                lat = marker.getPosition().lat();
-                lng = marker.getPosition().lng();
+                coords = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
                 marker.addListener('click', toggleBounce);
                 marker.addListener('position_changed', function () {
-                    lat = marker.getPosition().lat();
-                    lng = marker.getPosition().lng();
+                    coords = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
                 });
 
                 function toggleBounce() {
@@ -148,7 +146,6 @@ $(function () {
     }
 
     $("#pac-btn").click(function () {
-        coords = new google.maps.LatLng(lat, lng);
         initMap(coords);
         findLaundry(coords);
         $('#display-list').show();
