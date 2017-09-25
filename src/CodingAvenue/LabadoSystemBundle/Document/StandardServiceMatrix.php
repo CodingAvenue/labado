@@ -22,9 +22,10 @@ class StandardServiceMatrix
     protected $quantity;
     
     /**
-    * @MongoDB\Field(type="weight")
+    * @MongoDB\Field(type="float")
     */
     protected $weight;
+
 
     /**
      * Get id
@@ -39,10 +40,10 @@ class StandardServiceMatrix
     /**
      * Set service
      *
-     * @param CodingAvenue\LabadoSystemBundle\Document\laundry_service $service
+     * @param CodingAvenue\LabadoSystemBundle\Document\LaundryService $service
      * @return self
      */
-    public function setService(\CodingAvenue\LabadoSystemBundle\Document\laundry_service $service)
+    public function setService(\CodingAvenue\LabadoSystemBundle\Document\LaundryService $service)
     {
         $this->service = $service;
         return $this;
@@ -51,7 +52,7 @@ class StandardServiceMatrix
     /**
      * Get service
      *
-     * @return CodingAvenue\LabadoSystemBundle\Document\laundry_service $service
+     * @return CodingAvenue\LabadoSystemBundle\Document\LaundryService $service
      */
     public function getService()
     {
@@ -83,10 +84,10 @@ class StandardServiceMatrix
     /**
      * Set weight
      *
-     * @param weight $weight
+     * @param float $weight
      * @return self
      */
-    public function setWeight(\weight $weight)
+    public function setWeight($weight)
     {
         $this->weight = $weight;
         return $this;
@@ -95,7 +96,7 @@ class StandardServiceMatrix
     /**
      * Get weight
      *
-     * @return weight $weight
+     * @return float $weight
      */
     public function getWeight()
     {
