@@ -16,10 +16,10 @@ class Labadoer
     public $photo;
 
     /** @MongoDB\Field(type="string") */
-    public $firstname;
+    public $firstName;
 
     /** @MongoDB\Field(type="string") */
-    public $lastname;
+    public $lastName;
 
     /** @MongoDB\Field(type="string") */
     public $phoneNumber;
@@ -66,47 +66,47 @@ class Labadoer
     }
 
     /**
-     * Set firstname
+     * Set firstName
      *
-     * @param string $firstname
+     * @param string $firstName
      * @return self
      */
-    public function setFirstname($firstname)
+    public function setFirstName($firstName)
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
         return $this;
     }
 
     /**
-     * Get firstname
+     * Get firstName
      *
-     * @return string $firstname
+     * @return string $firstName
      */
-    public function getFirstname()
+    public function getFirstName()
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
     /**
-     * Set lastname
+     * Set lastName
      *
-     * @param string $lastname
+     * @param string $lastName
      * @return self
      */
-    public function setLastname($lastname)
+    public function setLastName($lastName)
     {
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
         return $this;
     }
 
     /**
-     * Get lastname
+     * Get lastName
      *
-     * @return string $lastname
+     * @return string $lastName
      */
-    public function getLastname()
+    public function getLastName()
     {
-        return $this->lastname;
+        return $this->lastName;
     }
 
     /**
