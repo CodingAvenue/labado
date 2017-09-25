@@ -17,8 +17,6 @@ class InputEstimateController extends Controller
     public function inputEstimateAction(LaundryShop $shop)
     {
         $form = $this->createForm(EstimateType::class,null, ['services' => $shop->getServices()]);
-
         return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', ["form" => $form->createView() ,"shop" => $shop]);
     }
-
 }
