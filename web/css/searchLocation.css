@@ -1,3 +1,27 @@
+.loading_container, .loading_container img, .loading_container div, .loader {
+    margin: auto auto;
+    text-align: center;
+}
+
+.loading_container img {
+    max-width: 500px;
+    width: 100%;
+}
+
+#unable-to-detect img {
+    max-width: 100px;
+}
+
+#unable-to-detect {
+    padding-top: 20px;
+    box-shadow: 1px 1px 1px black;
+}
+
+#gps-off {
+    font-size: 70px;
+    margin-top: 24px;
+}
+
 #description {
     font-family: Roboto;
     font-size: 15px;
