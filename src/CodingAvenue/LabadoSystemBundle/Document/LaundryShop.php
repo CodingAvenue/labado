@@ -21,9 +21,6 @@ class LaundryShop
     public $minimumWeight;
 
     /** @MongoDB\Field(type="string") */
-    public $mobileNumber;
-
-    /** @MongoDB\Field(type="string") */
     public $phoneNumber;
 
     /** @MongoDB\EmbedOne(targetDocument="Coordinates") */
@@ -124,28 +121,6 @@ class LaundryShop
     public function getMinimumWeight()
     {
         return $this->minimumWeight;
-    }
-
-    /**
-     * Set mobileNumber
-     *
-     * @param string $mobileNumber
-     * @return self
-     */
-    public function setMobileNumber($mobileNumber)
-    {
-        $this->mobileNumber = $mobileNumber;
-        return $this;
-    }
-
-    /**
-     * Get mobileNumber
-     *
-     * @return string $mobileNumber
-     */
-    public function getMobileNumber()
-    {
-        return $this->mobileNumber;
     }
 
     /**
