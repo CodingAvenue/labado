@@ -5,8 +5,7 @@ namespace CodingAvenue\LabadoSystemBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document(repositoryClass="Repositories\LabadoerRepository")
- * @MongoDB\Index(keys={"coordinates"="2d"})
+ * @MongoDB\Document
  */
  class Vehicle
  {
