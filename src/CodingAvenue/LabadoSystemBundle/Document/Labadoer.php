@@ -13,7 +13,19 @@ class Labadoer
     public $id;
 
     /** @MongoDB\Field(type="string") */
-    public $name;
+    public $photo;
+
+    /** @MongoDB\Field(type="string") */
+    public $firstname;
+
+    /** @MongoDB\Field(type="string") */
+    public $lastname;
+
+    /** @MongoDB\Field(type="string") */
+    public $phoneNumber;
+
+    /** @MongoDB\Field(type="string") */
+    public $status;
 
     /** @MongoDB\EmbedOne(targetDocument="Coordinates") */
     public $coordinates;
@@ -32,25 +44,113 @@ class Labadoer
     }
 
     /**
-     * Set name
+     * Set photo
      *
-     * @param string $name
+     * @param string $photo
      * @return self
      */
-    public function setName($name)
+    public function setPhoto($photo)
     {
-        $this->name = $name;
+        $this->photo = $photo;
         return $this;
     }
 
     /**
-     * Get name
+     * Get photo
      *
-     * @return string $name
+     * @return string $photo
      */
-    public function getName()
+    public function getPhoto()
     {
-        return $this->name;
+        return $this->photo;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     * @return self
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string $firstname
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     * @return self
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string $lastname
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param string $phoneNumber
+     * @return self
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return string $phoneNumber
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string $status
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**
