@@ -169,7 +169,7 @@ $(function () {
         });
     });
 
-    $(".container").on('click', '#manual-button', function () {
+    $("#unable-to-detect").on('click', '#manual-button', function () {
         $('#unable-to-detect').hide();
         initAutocomplete();
         $('#map').show();
