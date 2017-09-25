@@ -39,13 +39,6 @@ class User extends BaseUser
      */
     private $contactNumber;
 
-    
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
-
     public function getAddress()
     {
         return $this->address;
