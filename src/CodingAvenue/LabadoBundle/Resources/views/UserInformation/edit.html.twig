@@ -1,6 +1,6 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}CodingAvenueLabadoBundle:UserInformation:edit{% endblock %}
+{% block title %}Edit information{% endblock %}
 
 {% block body %}
     <div class="container row mg-top">
@@ -23,7 +23,7 @@
                     {{ form_widget(form.contact_number) }}
                     <label for="contact_number">Contact number</label>
                 </div>
-                {% if app.request.get('_route') == "first_time_setup" %}
+                {% if app.request.get('_route') == "firstTimeSetup" %}
                     <a href="/" type="submit" class="btn red ">LATER</a>
                 {% endif %}
                 <input type="submit" class="btn right" value="Update">

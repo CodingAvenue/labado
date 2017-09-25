@@ -11,8 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 class UserInformationController extends Controller
 {
     /**
-     * @Route("/register/confirmed", name="first_time_setup")
-     * @Route("/profile/info/edit", name="user_info_edit")
+     * @Route("/register/confirmed", name="firstTimeSetup")
+     * @Route("/profile/info/edit", name="userInfoEdit")
      */
     public function editAction(Request $request)
     {

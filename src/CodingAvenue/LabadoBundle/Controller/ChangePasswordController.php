@@ -41,12 +41,9 @@ class ChangePasswordController extends BaseController
 
         $form->handleRequest($request);
 
-        $error = $form->getErrors(true);
         $errors = [];
-        if ($error) {
-            foreach ($error as $err) {
-                $errors[$err->getOrigin()->getConfig()->getName()] = $err->getMessage();
-            }
+        foreach ($form->getErrors(true) as $error) {
+            $errors[$error->getOrigin()->getConfig()->getName()] = $error->getMessage();
         }
 
         if ($form->isSubmitted() && $form->isValid()) {

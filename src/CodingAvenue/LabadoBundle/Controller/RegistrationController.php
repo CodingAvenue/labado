@@ -1,5 +1,4 @@
 <?php
-// src/AppBundle/Controller/RegistrationController.php
 
 namespace CodingAvenue\LabadoBundle\Controller;
 
@@ -61,8 +60,8 @@ class RegistrationController extends BaseController
 
                 $dispatcher->dispatch(
                     FOSUserEvents::REGISTRATION_COMPLETED,
-                    new FilterUserResponseEvent($user, $request, $response
-                ));
+                    new FilterUserResponseEvent($user, $request, $response)
+                );
 
                 return $response;
             }
