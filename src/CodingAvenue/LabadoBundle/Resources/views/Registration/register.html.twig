@@ -13,7 +13,7 @@
             {% for error in errors %}
                 str += "<li>{{error}}</li>";
             {% endfor %}
-            $('#form-error-message').css("display","block");
+            $('#form-error-message').css("display", "block");
             $('#form-error-message').html(str);
         {% endif %}
     </script>

@@ -21,7 +21,7 @@ class UserInformationController extends Controller
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $user = $em->getRepository(User::class)->find($user);
 
-        $form = $this->createForm(InformationType::class,$user ); 
+        $form = $this->createForm(InformationType::class, $user); 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
