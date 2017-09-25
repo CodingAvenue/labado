@@ -1,10 +1,11 @@
 <?php
 namespace CodingAvenue\LabadoSystemBundle\Document;
 
+use CodingAvenue\LabadoSystemBundle\Document\Coordinates;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document(repositoryClass="Repositories\LabadoerRepository")
+ * @MongoDB\Document(repositoryClass="Repository\LabadoerRepository")
  * @MongoDB\Index(keys={"coordinates"="2d"})
  */
 class Labadoer
@@ -56,10 +57,10 @@ class Labadoer
     /**
      * Set coordinates
      *
-     * @param CodingAvenue\LabadoSystemBundle\Document\Coordinates $coordinates
+     * @param Coordinates $coordinates
      * @return self
      */
-    public function setCoordinates(\CodingAvenue\LabadoSystemBundle\Document\Coordinates $coordinates)
+    public function setCoordinates(Coordinates $coordinates)
     {
         $this->coordinates = $coordinates;
         return $this;
@@ -68,7 +69,7 @@ class Labadoer
     /**
      * Get coordinates
      *
-     * @return CodingAvenue\LabadoSystemBundle\Document\Coordinates $coordinates
+     * @return Coordinates $coordinates
      */
     public function getCoordinates()
     {

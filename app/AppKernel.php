@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new CodingAvenue\LabadoBundle\CodingAvenueLabadoBundle(),
             new CodingAvenue\LabadoSystemBundle\CodingAvenueLabadoSystemBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -33,3 +33,8 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    doctrine_mongo_db_param_converter:
+        class: Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter
+        arguments: ['@doctrine_mongodb']
+        tags:
+            - { name: request.param_converter, priority: -2, converter: doctrine_mongo_db_param_converter}

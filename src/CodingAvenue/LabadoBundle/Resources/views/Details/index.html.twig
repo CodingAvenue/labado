@@ -6,7 +6,7 @@
         <div class="col s12 m9">
             <h4>{{ laundry_shop.getName() }}</h4>
             <p id="address">{{ laundry_shop.getAddress() }}</p>
-            <p id="contact_number">{{ laundry_shop.getContactNumber() }}</p>
+            <p id="phone_number">{{ laundry_shop.getPhoneNumber() }}</p>
             <h5>Rates:</h5>
             {% for service in laundry_shop.getServices() %}
                 <li>{{ service.type }} - &#8369;{{ service.pricePerKilo }}</li>

@@ -12,7 +12,7 @@ $(function () {
             maximumAge: 0
         };
 
-        navigator.geolocation.watchPosition(detectLocation, inputLocationManually, options);
+        navigator.geolocation.getCurrentPosition(detectLocation, inputLocationManually, options);
     } else {
         inputLocationManually();
     }

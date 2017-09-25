@@ -12,6 +12,6 @@ class ListController extends Controller
      */
     public function indexAction()
     {
-       return $this->render('CodingAvenueLabadoBundle:List:index.html.twig');
+        return $this->render('CodingAvenueLabadoBundle:List:index.html.twig');
     }
 }
