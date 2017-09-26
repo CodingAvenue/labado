@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class BookingRequestController extends Controller
 {
     /**
-     * @Route("/bookingrequest")
+     * @Route("/bookingrequest", name="bookingRequest")
      */
     public function storeAction()
     {
