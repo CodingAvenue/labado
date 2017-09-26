@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     public $id;
 
     /** @MongoDB\Field(type="date") */
-    public $requested_at;
+    public $requestedAt;
 
     /**
     * @MongoDB\ReferenceOne(targetDocument="User")
@@ -34,7 +34,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     const STATUS_CONFIRMED = "Confirmed";
     const STATUS_CANCELLED = "Cancelled";
     const STATUS_IN_PROGRESS = "In Progress";    
-    const STATUS_NO_LABADOER= "No Labadoer Found";    
+    const STATUS_NO_LABADOER = "No Labadoer Found";    
     /**
     * @MongoDB\Field(type="string")
     * @Assert\Choice(
@@ -71,7 +71,7 @@ use Symfony\Component\Validator\Constraints as Assert;
      */
     public function setRequestedAt($requestedAt)
     {
-        $this->requested_at = $requestedAt;
+        $this->requestedAt = $requestedAt;
         return $this;
     }
 
@@ -82,7 +82,7 @@ use Symfony\Component\Validator\Constraints as Assert;
      */
     public function getRequestedAt()
     {
-        return $this->requested_at;
+        return $this->requestedAt;
     }
 
     /**
