@@ -12,7 +12,7 @@ class Booking
     public $id;
 
     /**
-     * @MongoDB\Field(type="datetime")
+     * @MongoDB\Field(type="date")
      */
      protected $bookedAt;
 
@@ -45,7 +45,6 @@ class Booking
     * @MongoDB\Field(type="string")
     */
     protected $status;
-
     public function __construct()
     {
         $this->standardServiceMatrix = new \Doctrine\Common\Collections\ArrayCollection();
@@ -64,7 +63,7 @@ class Booking
     /**
      * Set bookedAt
      *
-     * @param string $bookedAt
+     * @param date $bookedAt
      * @return self
      */
     public function setBookedAt($bookedAt)
@@ -76,7 +75,7 @@ class Booking
     /**
      * Get bookedAt
      *
-     * @return string $bookedAt
+     * @return date $bookedAt
      */
     public function getBookedAt()
     {
