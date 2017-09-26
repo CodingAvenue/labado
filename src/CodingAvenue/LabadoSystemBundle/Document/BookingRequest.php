@@ -2,6 +2,7 @@
 namespace CodingAvenue\LabadoSystemBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @MongoDB\Document
@@ -11,7 +12,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
     /** @MongoDB\Id */
     public $id;
 
-    /** @MongoDB\Field(type="dateTime") */
+    /** @MongoDB\Field(type="date") */
     public $requested_at;
 
     /**
@@ -33,7 +34,8 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
     * @MongoDB\Field(type="string")
     */
     protected $status;
-     public function __construct()
+
+    public function __construct()
     {
         $this->standardServiceMatrix = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -51,10 +53,10 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
     /**
      * Set requestedAt
      *
-     * @param dateTime $requestedAt
+     * @param date $requestedAt
      * @return self
      */
-    public function setRequestedAt(\dateTime $requestedAt)
+    public function setRequestedAt($requestedAt)
     {
         $this->requested_at = $requestedAt;
         return $this;
@@ -63,7 +65,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
     /**
      * Get requestedAt
      *
-     * @return dateTime $requestedAt
+     * @return date $requestedAt
      */
     public function getRequestedAt()
     {
