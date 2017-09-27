@@ -17,8 +17,6 @@ class User extends BaseUser
     /** @MongoDB\EmbedOne(targetDocument="Coordinates") */
     public $coordinates;
 
-    // @todo add Coordinates embeded entity here. See Labadoer $coordinates property
-
     /**
      * Set coordinates
      *

@@ -17,13 +17,11 @@ class LocationController extends Controller
      */
     public function searchAction()
     {
-        return $this->render('CodingAvenueLabadoBundle:Location:search.html.twig', array(
-            // ...
-        ));
+        return $this->render('CodingAvenueLabadoBundle:Location:search.html.twig');
     }
 
     /**
-     * @Route("/location", name="store")
+     * @Route("/location", name="storeCoords")
      * @Method("POST")
      */
     public function storeAction(Request $request)
