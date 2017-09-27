@@ -5,7 +5,7 @@ use CodingAvenue\LabadoSystemBundle\Document\Coordinates;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document(repositoryClass="Repository\LabadoerRepository")
+ * @MongoDB\Document(repositoryClass="CodingAvenue\LabadoSystemBundle\Repository\LabadoerRepository")
  * @MongoDB\Index(keys={"coordinates"="2d"})
  */
 class Labadoer
