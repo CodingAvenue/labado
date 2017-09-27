@@ -6,9 +6,21 @@
 
 {% block body %}
     <div class="row">
-        <div class="col s12" id="map">
+        <div class="col s12" id="map"></div>
+    </div>
+
+    <div class="row">
+        <div id="no-laundryshops-found">
+            <div class="col s12" >
+                <img id="default-image" src="{{asset('images/default_laundry.png')}}">
+            </div>
+            <div class="col s12">
+                <h4>No laundry shops found</h4>
+                <h6>Unfortunately, our service is not available in your area.</h6>
+            </div>
         </div>
     </div>
+
     <div class="container">
         <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
         <a id="pac-btn" class="waves-effect waves-light btn indigo">Set location</a>

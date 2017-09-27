@@ -1,18 +1,3 @@
-.laundry-shop-detail img {
-    text-align: center;
-    max-width: 120px;
-    width: 100%;
-}
-
-#no-laundryshops-found {
-    text-align: center;
-    display: none;
-}
-
-#default-image {
-    width: 100px;
-}    
-
 #vici {
    font-size: 10px; 
 }

@@ -11,7 +11,7 @@ $(function () {
             timeout: Infinity,
             maximumAge: 0
         };
-        navigator.geolocation.watchPosition(detectLocation, inputLocationManually, options);
+        navigator.geolocation.getCurrentPosition(detectLocation, inputLocationManually, options);
     } else {
         inputLocationManually();
     }
@@ -47,16 +47,24 @@ $(function () {
             types: ['laundry'],
         };
 
-        service.nearbySearch(requirements, listResult);
+        $.post(
+            "/location",
+            {x: coords.lng, y: coords.lat}
+        );
+
+        service.nearbySearch(requirements, storeResult);
     }
 
-    function listResult(results, status) {
+    function storeResult(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            listShop = results;
             $('#load-page').hide();
-            sessionStorage.setItem("laundryshops", JSON.stringify(listShop));
-        }
+            $('#no-laundryshops-found').hide();
+            sessionStorage.setItem("laundryshops", JSON.stringify(results));
             location.href = '/laundryshop';
+        }
+        else {
+            $('#no-laundryshops-found').toggle();
+        }
     }
 
     function initAutocomplete() {

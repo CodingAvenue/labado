@@ -1,13 +1,8 @@
 $(function () {
-    
+
     var laundry_shops = [];
-
-    if (sessionStorage.getItem("laundryshops") === null) {
-        $('#no-laundryshops-found').show();
-        return;
-    }
-
     laundry_shops = JSON.parse(sessionStorage.getItem("laundryshops"));
+
     var ul_id = $('#laundry-list');
     laundry_shops.map(function (laundry) {
         var row = '<li><div class="laundry-header collapsible-header" data-target=' + laundry.place_id +
@@ -18,7 +13,7 @@ $(function () {
 
     $("#laundry-list").on('click', '.laundry-header', function () {
         var placeId = $(this).data('target');
-        var theUrl = "laundryshop/"+ placeId + "/details";
+        var theUrl = "laundryshop/" + placeId + "/details";
         var body = $(this).next('.collapsible-body');
         $.ajax({
             url: theUrl,
