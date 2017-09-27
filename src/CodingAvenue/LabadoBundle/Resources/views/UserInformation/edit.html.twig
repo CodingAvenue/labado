@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Edit information{% endblock %}
+
+{% block body %}
+    <div class="container row mg-top">
+        <div class="col s12 m6 offset-m3 labado-item-container">
+            {% if app.request.get('_route') == "first_time_setup" %}
+                <p class="center-align">Congrats {{ app.user.username }}, your accout has been successfuly confirmed. Please fill the fields with your information</p>
+            {% else %}
+                <h5 class="center-align">Update information</h5>
+            {% endif %}
+            {{ form_start(form) }}
+                <div class="input-field">
+                    {{ form_widget(form.address) }}
+                    <label for="address">Address</label>
+                </div>
+                <div class="input-field">
+                    {{ form_widget(form.landmark) }}
+                    <label for="landmark">Landmark</label>
+                </div>
+                <div class="input-field">
+                    {{ form_widget(form.contact_number) }}
+                    <label for="contact_number">Contact number</label>
+                </div>
+                {% if app.request.get('_route') == "firstTimeSetup" %}
+                    <a href="/" type="submit" class="btn red ">LATER</a>
+                {% endif %}
+                <input type="submit" class="btn right" value="Update">
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
