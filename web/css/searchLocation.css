@@ -1,0 +1,41 @@
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input {
+    display: none;
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0 11px 1 13px;
+    text-overflow: ellipsis;
+    margin: 2%;
+    width: 96%;
+}
+
+#pac-btn {
+    display: none;
+    padding: 0 11px 1 13px;
+    margin: 2%;
+    margin-bottom: 20px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+#target {
+    width: 345px;
+}
+
+#map {
+    display: none;
+}

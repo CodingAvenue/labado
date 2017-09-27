@@ -1,13 +1,24 @@
 <div class="card horizontal">
-    <div class="card-image">
-        <img src="{{asset('images/unable_to_locate.png')}}" > 
-    </div>
-    <div class="card-stacked">
-        <div class="card-content">
-            <p>Having trouble detecting your location. Maybe your GPS is turned-off or there's a problem to the server</p>
-        </div>
-        <div class="card-action">
-            <a href="#" class="waves-effect waves-light indigo btn">Retry</a>
-        </div>
+    <div class="container">
+	<div class="row">
+	    <div class="card-image col s3">
+		<li id="gps-off" class="material-icons">gps_off</li>
+	    </div>
+	    <div class="card-stacked col s9">
+		<div class="card-content">
+		    <p>Having trouble detecting your location. Maybe your GPS is turned-off or there's a problem to the server</p>
+		</div>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="col s4">
+		<a href="{{ path('laundryshop') }}" id="retry-button" class="waves-effect waves-light indigo btn z-depth-3">Retry</a>
+	    </div>
+	    <div class="col s4">
+	    </div>
+	    <div class="col s4">
+		<a href="javascript:;" id="manual-button" class="waves-effect waves-light teal btn z-depth-3">Set</a>
+	    </div>
+	</div>
     </div>
 </div>
