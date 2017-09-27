@@ -7,3 +7,23 @@
     box-shadow: 0px 0px 1px black;
     border-radius: 15px 15px;
 }
+
+.labado-img-loader img {
+    max-width: 500px;
+    width: 100%;  
+}
+
+.labado-img-loader .loading-message {
+    font-family: "Josefin Sans";
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+
+.fail-message {
+    display: none;
+}
+
+.fail-message .message {
+    font-size: 15px;
+}
