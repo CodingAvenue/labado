@@ -1,7 +1,7 @@
 $(document).ready(function() {
     checkStatus();
 
-    function checkStatus(){ 
+    function checkStatus() { 
         setTimeout(function() {
             $.ajax({
                 dataType: "json",

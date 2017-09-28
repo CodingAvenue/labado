@@ -10,7 +10,7 @@
     <div id="main-view" class="container mg-top">
         <div class="row labado-img-loader center-align">
             <img src="{{ asset('images/loading_location.gif') }}"/>
-            <label class="loading-message">Finding you a Labadoer</h5>
+            <label class="loading-message">Finding you a Labadoer</label>
         </div>
     </div>
     <div id="no-labadoer-message" class="mg-top labado-item-container">
@@ -25,7 +25,7 @@
 
 {% block javascripts %}
     <script type="text/javascript">
-        id = "{{booking_request_id}}";
+        id = "{{ booking_request_id }}";
     </script>
     <script type="text/javascript" src="{{ asset('js/BookingRequest/findLabadoer.js') }}"></script>
 {% endblock %}

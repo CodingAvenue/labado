@@ -43,7 +43,7 @@ class InputEstimateController extends Controller
             ]);
         }
         return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', [
-            "form" => $form->createView() ,"shop" => $shop
+            "form" => $form->createView(), "shop" => $shop
         ]);
     }
 }
