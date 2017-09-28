@@ -5,3 +5,25 @@
 p span {
     display: block;
 }
+
+p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#laundry-list li {
+    margin: 0px;
+}
+
+.laundry-shop-detail img {
+    max-width: 60px;
+}
+
+.collapsible-body {
+    border-top: 2px solid #3f51b5;
+}
+
+.rates-table {
+    overflow: scroll;
+    height: 10px;
+}

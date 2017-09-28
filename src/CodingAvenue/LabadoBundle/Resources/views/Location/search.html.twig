@@ -23,11 +23,11 @@
 
     <div class="container">
         <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
-        <a id="pac-btn" class="waves-effect waves-light btn indigo">Set location</a>
+        <a id="pac-btn" class="waves-effect waves-light btn-large indigo">Set location</a>
         <div id="load-page">
             {% include '@CodingAvenueLabado/Location/loading_screen.html.twig' %}
         </div> 
-        <div id="unable-to-detect" style="display:none">
+        <div id="unable-to-detect" class="z-depth-4" style="display:none">
             {% include '@CodingAvenueLabado/Location/unable_to_detect.html.twig' %}
         </div>
     </div>
