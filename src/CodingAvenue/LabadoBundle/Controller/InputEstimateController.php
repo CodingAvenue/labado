@@ -22,7 +22,6 @@ class InputEstimateController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $booking_request = new BookingRequest();
-            $booking_request->setUser($this->getUser());
             $booking_request->setUser($this->container->get('security.token_storage')->getToken()->getUser());
             $booking_request->setLaundryShop($shop);
             $booking_request->setStatus(BookingRequest::STATUS_PENDING);
@@ -30,7 +29,6 @@ class InputEstimateController extends Controller
             foreach ($form->getData() as $key => $data) {
                 $service = new StandardServiceMatrix();
                 $service->setService($shop->getServices()[(int)substr($key, -1)]);
-                $service->setQuantity(0);
                 $service->setWeight($form->getData()[$key]);
                 $booking_request->addStandardServiceMatrix($service);
             }
@@ -43,7 +41,8 @@ class InputEstimateController extends Controller
             ]);
         }
         return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', [
-            "form" => $form->createView(), "shop" => $shop
+            "form" => $form->createView(),
+            "shop" => $shop,
         ]);
     }
 }

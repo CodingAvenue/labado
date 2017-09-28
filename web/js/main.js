@@ -4,7 +4,6 @@ function labadoErrorMessage() {
 }
 
 function labadoErrorMessage(message) {
-    $('#main-body').hide();
     $('.fail-message .message').html(message);
-    $('.fail-message').show();
+    labadoErrorMessage();
 }
