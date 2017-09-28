@@ -23,7 +23,7 @@
 
             <div class="input-field">
                 <i class="material-icons prefix">vpn_key</i>
-                <input type="password" id="password" name="_password" required="required" class="form-control"  />
+                <input type="password" id="password" name="_password" required="required" class="form-control " />
                 <label for="password">{{ 'security.login.password'|trans }}</label>
             </div>
 
@@ -32,9 +32,10 @@
                 <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
             </div>
 
-            <div class="right ">
-                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-primary btn-block" />
+            <div class="right">
+                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-primary btn-block indigo" />
             </div>
         </div>
+        <div class="mg-top col s12 center-align">Not a member? <a href="{{ path('fos_user_registration_register') }}">Register</a></div>
     </div>
 </form>
