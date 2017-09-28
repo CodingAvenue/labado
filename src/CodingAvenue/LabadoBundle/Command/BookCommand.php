@@ -49,7 +49,7 @@ class BookCommand extends ContainerAwareCommand
 
             $services = $booking_request->getStandardServiceMatrix();
             foreach($services as $service) {
-                $booking_request->addStandardServiceMatrix($service);
+                $booking->addStandardServiceMatrix($service);
             }
 
             $booking->setLaundryShop($booking_request->getLaundryShop());
