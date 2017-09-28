@@ -2,6 +2,7 @@
 namespace CodingAvenue\LabadoSystemBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @MongoDB\Document
@@ -41,10 +42,18 @@ class Booking
     */
     protected $laundryShop;
     
+    const STATUS_IN_PROGRESS = "In Progress"; 
+
     /**
     * @MongoDB\Field(type="string")
+    * @Assert\Choice(
+    *      choices = {
+    *          BookingRequest::STATUS_IN_PROGRESS: "In Progress"
+    *      }
+    * )
     */
     protected $status;
+
     public function __construct()
     {
         $this->standardServiceMatrix = new \Doctrine\Common\Collections\ArrayCollection();
