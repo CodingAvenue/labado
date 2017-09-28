@@ -47,7 +47,7 @@ class BookCommand extends ContainerAwareCommand
             $booking->setUser($booking_request->getUser());
 
             $services = $booking_request->getStandardServiceMatrix();
-            foreach($services as $service) {
+            foreach ($services as $service) {
                 $booking->addStandardServiceMatrix($service);
             }
 
@@ -58,7 +58,7 @@ class BookCommand extends ContainerAwareCommand
         }
         
         $em->flush();
-        $output->writeln('Command result.');
+        $output->writeln('Booking successful.');
     }
 
 }
