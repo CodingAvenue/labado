@@ -17,7 +17,7 @@ class InputEstimateController extends Controller
      */
     public function inputEstimateAction(LaundryShop $shop, Request $request)
     {
-        $form = $this->createForm(EstimateType::class,null, ['services' => $shop->getServices()]);
+        $form = $this->createForm(EstimateType::class, null, ['services' => $shop->getServices()]);
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {

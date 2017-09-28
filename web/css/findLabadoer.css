@@ -1,0 +1,9 @@
+#no-labadoer-message {
+    display: none;
+    text-align: center;
+}
+
+#no-labadoer-message label {
+    display: block;
+    font-size: 25px;
+}

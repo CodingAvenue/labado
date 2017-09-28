@@ -19,7 +19,7 @@ class BookingRequestController extends Controller
         $id = $request->query->get('bookingRequestId');
         $job = new Job('book', [$id]);
         
-        return $this->render('CodingAvenueLabadoBundle:BookingRequest:store.html.twig', [ 
+        return $this->render('CodingAvenueLabadoBundle:BookingRequest:check_status.html.twig', [ 
             "BookingRequestId" => $id,
         ]);
     }
