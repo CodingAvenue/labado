@@ -6,7 +6,7 @@ $(document).ready(function() {
             $.ajax({
                 dataType: "json",
                 method: "post",
-                url: "/bookingrequest/"+id+"/status", 
+                url: "/bookingrequest/" + id + "/status", 
                 success: function(data) {
                     if (data.status == "In Progress" || data.status == "Pending") {
                         checkStatus();
