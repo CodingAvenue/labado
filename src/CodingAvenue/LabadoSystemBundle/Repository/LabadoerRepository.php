@@ -7,7 +7,7 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
 
 class LabadoerRepository extends DocumentRepository
 {
-    public function findOneNearby(Coordinates $coords):Labadoer 
+    public function findOneNearby(Coordinates $coords)
     {
         $labadoer = $this->createQueryBuilder(Labadoer::class)
             ->geoNear($coords->x, $coords->y)

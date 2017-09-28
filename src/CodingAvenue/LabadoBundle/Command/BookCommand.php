@@ -56,9 +56,9 @@ class BookCommand extends ContainerAwareCommand
 
             $booking_request->setStatus(BookingRequest::STATUS_CONFIRMED);
         }
-        
         $em->flush();
-        $output->writeln('Booking successful.');
+
+        $output->writeln($booking_request->getStatus());
     }
 
 }
