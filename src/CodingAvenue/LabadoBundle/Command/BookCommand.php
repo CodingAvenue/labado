@@ -38,8 +38,7 @@ class BookCommand extends ContainerAwareCommand
         $coords = $booking_request->getUser()->getCoordinates();
         $labadoer = $repository->findOneNearby($coords);
 
-
-        if($labadoer == null) {
+        if ($labadoer == null) {
             $booking_request->setStatus(BookingRequest::STATUS_NO_LABADOER);
         } else {
             $booking = new Booking(); 
