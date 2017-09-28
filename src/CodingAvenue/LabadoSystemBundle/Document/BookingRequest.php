@@ -33,7 +33,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
     const STATUS_CONFIRMED = "Confirmed";
     const STATUS_IN_PROGRESS = "In Progress";    
-    const STATUS_PENDING= "Pending";    
+    const STATUS_PENDING = "Pending";    
     const STATUS_NO_LABADOER = "No Labadoer Found";    
     /**
     * @MongoDB\Field(type="string")
