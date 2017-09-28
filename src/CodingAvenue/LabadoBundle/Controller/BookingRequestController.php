@@ -11,16 +11,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookingRequestController extends Controller
 {
-    /**
-     * @Route("/bookingrequest", name="bookingRequest")
-     */
-    public function storeAction(Request $request)
+    public function storeAction($booking_request_id)
     {
-        $id = $request->query->get('bookingRequestId');
-        $job = new Job('book', [$id]);
-        
+        $em = $this->get('doctrine_mongodb')->getManager();
+        $job = new Job('book', [$booking_request_id]);
+        $em->persist($job);
+        $em->flush();
         return $this->render('CodingAvenueLabadoBundle:BookingRequest:check_status.html.twig', [ 
-            "BookingRequestId" => $id,
+            "booking_request_id" => $booking_request_id,
         ]);
     }
 

@@ -27,7 +27,7 @@ class InputEstimateController extends Controller
             $booking_request->setLaundryShop($shop);
             $booking_request->setStatus(BookingRequest::STATUS_PENDING);
 
-            foreach ($form->getData() as $key=>$data) {
+            foreach ($form->getData() as $key => $data) {
                 $service = new StandardServiceMatrix();
                 $service->setService($shop->getServices()[(int)substr($key, -1)]);
                 $service->setQuantity(0);
@@ -38,7 +38,8 @@ class InputEstimateController extends Controller
             $dm = $this->get('doctrine_mongodb')->getManager();
             $dm->persist($booking_request);
             $dm->flush();
-            return $this->redirectToRoute('bookingRequest', ["bookingRequestId"=>$booking_request->getId()]);
+            
+            return $this->forward('CodingAvenueLabadoBundle:BookingRequest:store', ["booking_request_id" => $booking_request->getId()]);
         }
         return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', ["form" => $form->createView() ,"shop" => $shop]);
     }
