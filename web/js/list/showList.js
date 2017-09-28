@@ -5,8 +5,7 @@ $(function () {
 
     var ul_id = $('#laundry-list');
     laundry_shops.map(function (laundry) {
-    
-    var row = '<li><div class="laundry-header collapsible-header" data-target=' + laundry.place_id
+        var row = '<li><div class="laundry-header collapsible-header" data-target=' + laundry.place_id
         + '><p><span>'
         + laundry.name + '</span><span id="vici">'
         + laundry.vicinity + '</span></p></div><div class="collapsible-body"></div></li>';
