@@ -38,9 +38,12 @@ class InputEstimateController extends Controller
             $dm = $this->get('doctrine_mongodb')->getManager();
             $dm->persist($booking_request);
             $dm->flush();
-            
-            return $this->forward('CodingAvenueLabadoBundle:BookingRequest:store', ["booking_request_id" => $booking_request->getId()]);
+            return $this->forward('CodingAvenueLabadoBundle:BookingRequest:store', [
+                "booking_request_id" => $booking_request->getId()
+            ]);
         }
-        return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', ["form" => $form->createView() ,"shop" => $shop]);
+        return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', [
+            "form" => $form->createView() ,"shop" => $shop
+        ]);
     }
 }

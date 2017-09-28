@@ -13,10 +13,12 @@ class BookingRequestController extends Controller
 {
     public function storeAction($booking_request_id)
     {
-        $em = $this->get('doctrine_mongodb')->getManager();
         $job = new Job('book', [$booking_request_id]);
+
+        $em = $this->get('doctrine_mongodb')->getManager();
         $em->persist($job);
         $em->flush();
+        
         return $this->render('CodingAvenueLabadoBundle:BookingRequest:check_status.html.twig', [ 
             "booking_request_id" => $booking_request_id,
         ]);
