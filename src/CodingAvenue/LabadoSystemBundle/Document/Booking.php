@@ -4,7 +4,7 @@ namespace CodingAvenue\LabadoSystemBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document
+ * @MongoDB\Document(repositoryClass="CodingAvenue\LabadoSystemBundle\Repository\BookingRepository")
  */
 class Booking
 {
@@ -41,6 +41,8 @@ class Booking
     */
     protected $laundryShop;
     
+    const STATUS_IN_PROGRESS = "In Progress";    
+
     /**
     * @MongoDB\Field(type="string")
     */

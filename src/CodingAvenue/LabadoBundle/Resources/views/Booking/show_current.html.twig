@@ -1,0 +1,68 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}CodingAvenueLabadoBundle:Booking:showCurrent{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/card.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div id="pads" class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+            <div id="map" style="height: 300px; width: 100%;"></div>
+        </div>
+
+        <div class="card-content">
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><i class="material-icons">person</i>{{ Labadoer.firstName }} {{ Labadoer.lastName}} <i class="material-icons right">more_vert</i></span>
+                <p class="activator"><i class="material-icons">phone</i> {{ Labadoer.phoneNumber }}</p>
+            </div>
+        </div>
+
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Labadoer Profile<i class="material-icons right">close</i></span>
+            <div class="col s12 m6">
+                <div class="card horizontal circle">
+                    <div class="card-image">
+                        <img id="labadoer-photo" src="{{ asset('images/labadoer/' ~ Labadoer.photo) }}">
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p><i class="material-icons">person</i><b>{{ Labadoer.firstName }} {{ Labadoer.lastName }}</b></p>
+                            <p><i class="material-icons">phone</i> {{ Labadoer.phoneNumber }}</p>
+                            <p><i class="material-icons">location_on</i> <span id="labadoer-address"></span></p>
+                            <p><i class="material-icons">local_shipping</i> <span id="labadoer-eta"></span></p>
+                            <p><i class="material-icons">linear_scale</i> <span id="labadoer-distance"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        var labadoer = {
+            coordinates: {
+                lat: {{ Labadoer.coordinates.x }},
+                lng: {{ Labadoer.coordinates.y }}
+            }
+        };
+
+        var user = {
+            coordinates: {
+                lat: {{ User.coordinates.x }},
+                lng: {{ User.coordinates.y }}
+            }
+        };
+
+        var markerIcon = "{{ asset('img/LabadoLogo.png') }}";
+    </script>
+    <script async defer
+        src="https://maps.google.com/maps/api/js?key=AIzaSyBAdrxzUzgYziv65MWKe0kBMozvMQTGf58&callback=initMap">
+    </script>
+    <script type="text/javascript" src="{{ asset('js/booking/showCurrentAction.js') }}"></script>
+{% endblock %}
