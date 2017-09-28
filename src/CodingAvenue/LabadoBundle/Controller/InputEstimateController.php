@@ -21,23 +21,24 @@ class InputEstimateController extends Controller
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
-            $br = new BookingRequest();
-            $br->setUser($this->getUser());
-            // $br->setUser($this->container->get('security.token_storage')->getToken()->getUser());
-            $br->setLaundryShop($shop);
+            $booking_request = new BookingRequest();
+            $booking_request->setUser($this->getUser());
+            $booking_request->setUser($this->container->get('security.token_storage')->getToken()->getUser());
+            $booking_request->setLaundryShop($shop);
+            $booking_request->setStatus(BookingRequest::STATUS_PENDING);
 
             foreach ($form->getData() as $key=>$data) {
                 $service = new StandardServiceMatrix();
                 $service->setService($shop->getServices()[(int)substr($key, -1)]);
                 $service->setQuantity(0);
                 $service->setWeight($form->getData()[$key]);
-                $br->addStandardServiceMatrix($service);
+                $booking_request->addStandardServiceMatrix($service);
             }
             
             $dm = $this->get('doctrine_mongodb')->getManager();
-            $dm->persist($br);
+            $dm->persist($booking_request);
             $dm->flush();
-            return $this->redirectToRoute('bookingRequest', ["bookingRequestId"=>$br->getId()]);
+            return $this->redirectToRoute('bookingRequest', ["bookingRequestId"=>$booking_request->getId()]);
         }
         return $this->render('CodingAvenueLabadoBundle:InputEstimate:input_estimate.html.twig', ["form" => $form->createView() ,"shop" => $shop]);
     }
