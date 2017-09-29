@@ -11,8 +11,8 @@ use CodingAvenue\LabadoBundle\Entity\User;
 class RegistrationErrorDetectorController extends Controller
 {
     /**
-     * @Route("/registration/exist/email", name="check_email")
-     * @Route("/registration/exist/username", name="chec_username")
+     * @Route("/registration/exist/email", name="checkEmail")
+     * @Route("/registration/exist/username", name="checkUsername")
      */
     public function existEmailAction(Request $request)
     {

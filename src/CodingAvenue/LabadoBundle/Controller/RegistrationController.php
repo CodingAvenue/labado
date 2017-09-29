@@ -39,10 +39,10 @@ class RegistrationController extends BaseController
         $error = $form->getErrors(true);
         $errors = [];
         if ($form->isSubmitted()) {
-            foreach($error as $err) {
+            foreach ($error as $err) {
                 $errors[$err->getOrigin()->getConfig()->getName()] = $err->getMessage();
             }
-            
+
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
