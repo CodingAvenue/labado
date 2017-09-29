@@ -1,9 +1,5 @@
 {% extends "base.html.twig" %}
 
-{% block stylesheets %}
-    <link href="{{ asset('css/registration.css') }}" rel="stylesheet">
-{% endblock %}
-
 {% block body %}
     {% block fos_user_content %}
         {% include "@FOSUser/Registration/register_content.html.twig" %}
@@ -17,8 +13,8 @@
             {% for error in errors %}
                 str += "<li>{{error}}</li>";
             {% endfor %}
-            $('#ErrorMessage').css("display","block");
-            $("#ErrorMessage").html(str);
+            $('#form-error-message').css("display", "block");
+            $('#form-error-message').html(str);
         {% endif %}
     </script>
     <script src="{{ asset('js/ErrorHandling/registration.js') }}"></script>

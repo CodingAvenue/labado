@@ -6,7 +6,7 @@
         <div class="col s12 m6 offset-m3 labado-item-container">
             <div id="header">
                 <h5 class="center-align">REGISTER</h5>
-                <ul id="ErrorMessage" class="center-align red white-text">
+                <ul id="form-error-message" class="center-align red white-text">
                 </ul>
             </div>
             <div class="input-field">
@@ -31,8 +31,9 @@
             </div>
             {{ form_widget(form._token) }}
 
-            <input type="submit" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }}" class="btn btn-lg btn-primary btn-block right" />
+            <input type="submit" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }}" class="btn btn-lg btn-primary btn-block right indigo" />
         </div>
+        <div class="mg-top col s12 center-align">Already a member? <a href="{{ path('fos_user_security_login') }}">Login</a></div>
     </div>
     {{ form_rest(form) }}
 {{ form_end(form) }}

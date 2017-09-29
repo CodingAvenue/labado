@@ -7,3 +7,46 @@
     box-shadow: 0px 0px 1px black;
     border-radius: 15px 15px;
 }
+
+.labado-img-loader img {
+    max-width: 500px;
+    width: 100%;  
+}
+
+.labado-img-loader .loading-message {
+    font-family: "Josefin Sans";
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+
+.fail-message {
+    display: none;
+}
+
+.fail-message .message {
+    font-size: 15px;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+    color: #3f51b5 !important;
+}
+
+/* label underline focus color */
+.input-field input:focus {
+    border-bottom: 1px solid #3f51b5 !important;
+    box-shadow: 0 1px 0 0 #3f51b5 !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #3f51b5;
+}
+
+#form-error-message {
+    padding: 10px;
+    margin-bottom: 30px;
+    display: none;
+    border-radius: 15px 15px;
+}

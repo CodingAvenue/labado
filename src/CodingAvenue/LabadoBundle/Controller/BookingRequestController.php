@@ -4,27 +4,33 @@ namespace CodingAvenue\LabadoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use CodingAvenue\LabadoSystemBundle\Document\BookingRequest;
+use Eo\JobQueueBundle\Document\Job;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookingRequestController extends Controller
 {
-    /**
-     * @Route("/bookingrequest")
-     */
-    public function storeAction()
+    public function storeAction($booking_request_id)
     {
-        return $this->render('CodingAvenueLabadoBundle:BookingRequest:store.html.twig', array(
-            // ...
-        ));
+        $job = new Job('book', [$booking_request_id]);
+
+        $em = $this->get('doctrine_mongodb')->getManager();
+        $em->persist($job);
+        $em->flush();
+        
+        return $this->render('CodingAvenueLabadoBundle:BookingRequest:check_status.html.twig', [ 
+            "booking_request_id" => $booking_request_id,
+        ]);
     }
 
     /**
      * @Route("/bookingrequest/{id}/status")
      */
-    public function checkStatusAction($id)
+    public function checkStatusAction(BookingRequest $booking_request)
     {
-        return $this->render('CodingAvenueLabadoBundle:BookingRequest:check_status.html.twig', array(
-            // ...
-        ));
-    }
+        $response = new JsonResponse(['status' => $booking_request->getStatus()]);
 
+        return $response;
+    }
 }

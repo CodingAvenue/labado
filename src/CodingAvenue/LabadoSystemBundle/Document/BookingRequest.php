@@ -32,16 +32,16 @@ use Symfony\Component\Validator\Constraints as Assert;
     protected $standardServiceMatrix;
 
     const STATUS_CONFIRMED = "Confirmed";
-    const STATUS_CANCELLED = "Cancelled";
     const STATUS_IN_PROGRESS = "In Progress";    
+    const STATUS_PENDING = "Pending";    
     const STATUS_NO_LABADOER = "No Labadoer Found";    
     /**
     * @MongoDB\Field(type="string")
     * @Assert\Choice(
     *      choices = {
     *          BookingRequest::STATUS_CONFIRMED: "Confirmed",
-    *          BookingRequest::STATUS_CANCELLED: "Cancelled",
     *          BookingRequest::STATUS_IN_PROGRESS: "In Progress",        
+    *          BookingRequest::STATUS_PENDING: "Pending",        
     *          BookingRequest::STATUS_NO_LABADOER: "No Labadoer Found",        
     *      }
     * )

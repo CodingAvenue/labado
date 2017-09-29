@@ -13,7 +13,7 @@ use CodingAvenue\LabadoSystemBundle\Document\User;
 class LocationController extends Controller
 {
     /**
-     * @Route("/search", name="search")
+     * @Route("/location/search", name="search")
      */
     public function searchAction()
     {
