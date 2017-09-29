@@ -20,8 +20,11 @@ $(function () {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
         coords = new google.maps.LatLng(lat, lng);
-        initMap(coords);
-        findLaundry(coords);
+        $('#load-page').hide();
+        initAutocomplete();
+        $('#map').show();
+        // initMap(coords);
+        // findLaundry(coords);
     }
 
     function inputLocationManually() {
@@ -79,6 +82,7 @@ $(function () {
 
         var marker = new google.maps.Marker({
             map: map,
+            position: coords,
             draggable: true,
             animation: google.maps.Animation.DROP,
         });
@@ -113,12 +117,13 @@ $(function () {
                     return;
                 }
                 marker.setPosition(new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()));
-                lat = marker.getPosition().lat();
-                lng = marker.getPosition().lng();
+
+                coords = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
+
                 marker.addListener('click', toggleBounce);
                 marker.addListener('position_changed', function () {
-                    lat = marker.getPosition().lat();
-                    lng = marker.getPosition().lng();
+                    console.log('x');
+                    coords = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
                 });
 
                 function toggleBounce() {
@@ -142,7 +147,6 @@ $(function () {
     }
 
     $("#pac-btn").click(function () {
-        coords = new google.maps.LatLng(lat, lng);
         initMap(coords);
         findLaundry(coords);
         $('#map').hide();
