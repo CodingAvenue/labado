@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use CodingAvenue\LabadoBundle\Entity\User;
+use CodingAvenue\LabadoSystemBundle\Document\User;
 
 class RegistrationErrorDetectorController extends Controller
 {
@@ -18,13 +18,13 @@ class RegistrationErrorDetectorController extends Controller
     {
         $data = $request->getContent();
 
-        if ($request->get('_route') === 'check_email') {
-            $user = $this->getDoctrine()
-                ->getRepository(User::class)
+        if ($request->get('_route') === 'checkEmail') {
+            $user = $this->get('doctrine_mongodb')
+                ->getRepository('CodingAvenueLabadoSystemBundle:User')
                 ->findByEmail($data);
         } else {
-            $user = $this->getDoctrine()
-                ->getRepository(User::class)
+            $user = $this->get('doctrine_mongodb')
+                ->getRepository('CodingAvenueLabadoSystemBundle:User')
                 ->findByUsername($data);
         }
 
