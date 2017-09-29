@@ -5,17 +5,17 @@ function initMap() {
     });
 
     var marker = new google.maps.Marker({
-            position: user.coordinates,
-            map: map,
+        position: user.coordinates,
+        map: map,
     });
 
     var marker = new google.maps.Marker({
-            position: labadoer.coordinates,
-            map: map,
-            icon: {
-                url: markerIcon,
-                scaledSize: new google.maps.Size(75,75),
-            }
+        position: labadoer.coordinates,
+        map: map,
+        icon: {
+            url: markerIcon,
+            scaledSize: new google.maps.Size(75,75),
+        }
     });
     
     var bounds = new google.maps.LatLngBounds();
@@ -46,6 +46,10 @@ function determineDistance(origin, destination) {
             for (var i = 0; i < originList.length; i++) {
                 var results = response.rows[i].elements;
                 for (var j = 0; j < results.length; j++) {
+                    if (results[j].status === 'ZERO_RESULTS') {
+                        continue;
+                    }
+
                     $('#labadoer-eta').html(results[j].duration.text);
                     $('#labadoer-distance').html(results[j].distance.text);
                 }

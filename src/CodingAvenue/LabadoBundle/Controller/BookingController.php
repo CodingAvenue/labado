@@ -5,8 +5,8 @@ namespace CodingAvenue\LabadoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use CodingAvenue\LabadoSystemBundle\Document\Booking;
+use CodingAvenue\LabadoSystemBundle\Document\Labadoer;
 use CodingAvenue\LabadoSystemBundle\Repository\BookingRepository;
-
 class BookingController extends Controller
 {
     /**
@@ -18,10 +18,10 @@ class BookingController extends Controller
         $repository = $em->getRepository(Booking::class);
 
         $booking = $repository->findOneCurrent($this->getUser());
-        dump($booking);
-        // if (! $booking) {
-        //     return $this->redirectToRoute('search');
-        // }
+
+        if (! $booking) {
+            return $this->redirectToRoute('search');
+        }
 
         return $this->render('CodingAvenueLabadoBundle:Booking:show_current.html.twig', [
             'Labadoer' => $booking->getLabadoer(),

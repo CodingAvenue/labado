@@ -39,8 +39,8 @@ class ImportCommand extends ContainerAwareCommand
             $laundry->setMinimumWeight(3);
 
             $coordinates = new Coordinates();
-            $coordinates->setX($data->coordinates->lng);
-            $coordinates->setY($data->coordinates->lat);
+            $coordinates->setX($data->coordinates->lat);
+            $coordinates->setY($data->coordinates->lng);
             $laundry->setCoordinates($coordinates);
 
             $laundry->setPlaceId($data->place_id);

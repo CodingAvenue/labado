@@ -13,28 +13,50 @@
             <div id="map" style="height: 300px; width: 100%;"></div>
         </div>
 
-        <div class="card-content">
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4"><i class="material-icons">person</i>{{ Labadoer.firstName }} {{ Labadoer.lastName}} <i class="material-icons right">more_vert</i></span>
+        <div class="card-content activator">
+            <div class="center-align">
+                 <i class="material-icons small">more_horiz</i>
+            </div>
+        <div class="row valign-wrapper">
+            <div class="col s4">
+                <img id="labadoer-photo" class="circle responsive-img" src="{{ asset('images/labadoer/' ~ Labadoer.photo) }}">
+            </div>
+            <div class="col s8">
+                <span class="card-title black-text text-darken-4"><i class="material-icons">person</i>{{ Labadoer.firstName }} {{ Labadoer.lastName}}</span>
                 <p class="activator"><i class="material-icons">phone</i> {{ Labadoer.phoneNumber }}</p>
             </div>
         </div>
+    </div>
 
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Labadoer Profile<i class="material-icons right">close</i></span>
-            <div class="col s12 m6">
-                <div class="card horizontal circle">
-                    <div class="card-image">
-                        <img id="labadoer-photo" src="{{ asset('images/labadoer/' ~ Labadoer.photo) }}">
+    <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Labadoer Profile<i class="material-icons right">close</i></span>
+        <div class="col s12 m6">
+            <div class="row valign-wrapper">
+                <div class="col s4 offset-s4">
+                    <img id="labadoer-photo" class="circle responsive-img" src="{{ asset('images/labadoer/' ~ Labadoer.photo) }}">
+                </div>
+            </div>
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <div class="row">
+                        <i class="material-icons col s2">person</i>
+                        <p class="col s10"><b>{{ Labadoer.firstName }} {{ Labadoer.lastName }}</b></p>
                     </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p><i class="material-icons">person</i><b>{{ Labadoer.firstName }} {{ Labadoer.lastName }}</b></p>
-                            <p><i class="material-icons">phone</i> {{ Labadoer.phoneNumber }}</p>
-                            <p><i class="material-icons">location_on</i> <span id="labadoer-address"></span></p>
-                            <p><i class="material-icons">local_shipping</i> <span id="labadoer-eta"></span></p>
-                            <p><i class="material-icons">linear_scale</i> <span id="labadoer-distance"></span></p>
-                        </div>
+                    <div class="row">
+                        <i class="material-icons col s2">phone</i>
+                        <p class="col s10">{{ Labadoer.phoneNumber }}</p>
+                    </div>
+                    <div class="row">
+                        <i class="material-icons col s2">location_on</i>
+                        <span id="labadoer-address" class="col s10"></span>
+                    </div>
+                    <div class="row">
+                        <i class="material-icons col s2">local_shipping</i>
+                        <span id="labadoer-eta" class="col s10"></span>
+                    </div>
+                    <div class="row">
+                        <i class="material-icons col s2">linear_scale</i>
+                        <span id="labadoer-distance" class="col s10"></span>
                     </div>
                 </div>
             </div>
