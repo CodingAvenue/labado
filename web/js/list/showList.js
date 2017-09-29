@@ -3,6 +3,10 @@ $(function () {
     var laundry_shops = [];
     laundry_shops = JSON.parse(sessionStorage.getItem("laundryshops"));
 
+    if (! laundry_shops) {
+        location.href = "/location/search";
+    }
+
     var ul_id = $('#laundry-list');
     laundry_shops.map(function (laundry) {
         var row = '<li><div class="laundry-header collapsible-header" data-target=' + laundry.place_id
