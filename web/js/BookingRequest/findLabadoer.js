@@ -2,7 +2,6 @@ $(document).ready(function() {
     checkStatus();
 
     function checkStatus() { 
-        console.log("hey");
         $.ajax({
             dataType: "json",
             method: "post",
