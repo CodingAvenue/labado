@@ -30,7 +30,7 @@ $(function () {
     }
 
     function initMap(coords) {
-        sessionStorage.clear();
+        localStorage.clear();
         var mapOptions = {
             zoom: 20,
             center: coords,
@@ -59,7 +59,7 @@ $(function () {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             $('#load-page').hide();
             $('#no-laundryshops-found').hide();
-            sessionStorage.setItem("laundryshops", JSON.stringify(results));
+            localStorage.setItem("laundryshops", JSON.stringify(results));
             location.href = '/laundryshop';
         }
         else {

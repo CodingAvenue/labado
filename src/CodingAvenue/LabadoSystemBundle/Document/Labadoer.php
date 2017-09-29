@@ -6,7 +6,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * @MongoDB\Document(repositoryClass="CodingAvenue\LabadoSystemBundle\Repository\LabadoerRepository")
- * @MongoDB\Index(keys={"coordinates"="2d"})
+ * @MongoDB\Index(keys={"coordinates"="2dsphere"})
  */
 class Labadoer
 {

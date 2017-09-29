@@ -20,4 +20,19 @@ $(document).ready(function() {
             labadoErrorMessage();
         });
     }
+
+    $("#main-view").on( "click", "#cancel-request", function() {
+        $('#cancel-request').addClass('disabled');
+        $.ajax({
+            dataType: "json",
+            method: "post",
+            url: "/bookingrequest/" + id + "/cancel", 
+            success: function(data){
+                if (data.status == 'Cancelled') {
+                    location.href = "/laundryshop";
+                } 
+            }
+        });
+    });
+
 });

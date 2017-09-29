@@ -25,7 +25,10 @@ use Symfony\Component\Validator\Constraints as Assert;
     * @MongoDB\ReferenceOne(targetDocument="LaundryShop")
     */
     protected $laundryShop;
-    
+
+    /** @MongoDB\Field(type="string") */
+    protected $jobId;
+   
     /**
     * @MongoDB\EmbedMany(targetDocument="StandardServiceMatrix")
     */
@@ -35,6 +38,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     const STATUS_IN_PROGRESS = "In Progress";    
     const STATUS_PENDING = "Pending";    
     const STATUS_NO_LABADOER = "No Labadoer Found";    
+    const STATUS_CANCELLED = "Cancelled";    
     /**
     * @MongoDB\Field(type="string")
     * @Assert\Choice(
@@ -43,6 +47,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     *          BookingRequest::STATUS_IN_PROGRESS: "In Progress",        
     *          BookingRequest::STATUS_PENDING: "Pending",        
     *          BookingRequest::STATUS_NO_LABADOER: "No Labadoer Found",        
+    *          BookingRequest::STATUS_CANCELLED: "Cancelled",        
     *      }
     * )
     */
@@ -179,5 +184,27 @@ use Symfony\Component\Validator\Constraints as Assert;
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set jobId
+     *
+     * @param string $jobId
+     * @return self
+     */
+    public function setJobId($jobId)
+    {
+        $this->jobId = $jobId;
+        return $this;
+    }
+
+    /**
+     * Get jobId
+     *
+     * @return string $jobId
+     */
+    public function getJobId()
+    {
+        return $this->jobId;
     }
 }

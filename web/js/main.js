@@ -7,3 +7,7 @@ function labadoErrorMessage(message) {
     $('.fail-message .message').html(message);
     labadoErrorMessage();
 }
+
+function back() {
+    window.history.back();
+}

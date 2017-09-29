@@ -1,7 +1,10 @@
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
-      center: user.coordinates
+      center: user.coordinates,
+      mapTypeControl: false,
+      fullscreenControl: false,
+      disableDefaultUI: true,
     });
 
     var marker = new google.maps.Marker({
@@ -69,3 +72,8 @@ function determineFullAddress(latlng, map) {
         }
     });
 }
+
+    var nav_size = $('nav').height();
+    var window_size = $(window).height();
+    $('#pads').height(window_size - nav_size);
+

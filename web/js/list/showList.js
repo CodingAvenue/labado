@@ -1,7 +1,6 @@
 $(function () {
-
     var laundry_shops = [];
-    laundry_shops = JSON.parse(sessionStorage.getItem("laundryshops"));
+    laundry_shops = JSON.parse(localStorage.getItem("laundryshops"));
 
     var ul_id = $('#laundry-list');
     laundry_shops.map(function (laundry) {

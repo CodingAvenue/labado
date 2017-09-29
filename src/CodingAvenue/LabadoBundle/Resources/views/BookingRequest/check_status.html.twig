@@ -11,6 +11,7 @@
         <div class="row labado-img-loader center-align">
             <img src="{{ asset('images/loading_location.gif') }}"/>
             <label class="loading-message">Finding you a Labadoer</label>
+            <button id="cancel-request" class="mg-top labado-color btn indigo">CANCEL</button>
         </div>
     </div>
     <div id="no-labadoer-message" class="mg-top labado-item-container">
@@ -25,7 +26,7 @@
 
 {% block javascripts %}
     <script type="text/javascript">
-        var id = "{{ booking_request_id }}";
+        var id = "{{ booking_request.id }}";
     </script>
     <script type="text/javascript" src="{{ asset('js/BookingRequest/findLabadoer.js') }}"></script>
 {% endblock %}
