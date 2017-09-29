@@ -5,7 +5,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @MongoDB\Document
+ * @MongoDB\Document(repositoryClass="CodingAvenue\LabadoSystemBundle\Repository\BookingRepository")
  */
 class Booking
 {
@@ -42,7 +42,7 @@ class Booking
     */
     protected $laundryShop;
     
-    const STATUS_IN_PROGRESS = "In Progress"; 
+    const STATUS_IN_PROGRESS = "In Progress";
 
     /**
     * @MongoDB\Field(type="string")

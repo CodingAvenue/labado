@@ -8,10 +8,16 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
  */
 class Coordinates
 {
-    /** @MongoDB\Field(type="float") */
+    /**
+     * Latitude
+     * @MongoDB\Field(type="float")\
+     */
     public $x;
 
-    /** @MongoDB\Field(type="float") */
+    /**
+     * Longitude
+     * @MongoDB\Field(type="float")\
+     */
     public $y;
 
     /**

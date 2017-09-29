@@ -53,6 +53,7 @@ class BookCommand extends ContainerAwareCommand
 
             $booking->setLaundryShop($booking_request->getLaundryShop());
             $booking->setStatus(Booking::STATUS_IN_PROGRESS);
+            $em->persist($booking);
 
             $booking_request->setStatus(BookingRequest::STATUS_CONFIRMED);
         }
