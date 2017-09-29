@@ -18,8 +18,6 @@ class UserInformationController extends Controller
     {
         $em = $this->get('doctrine_mongodb')->getManager();
 
-        // $user = $this->get('security.token_storage')->getToken()->getUser();
-        // $user = find($user);
         $user = $this->getUser();
 
         $form = $this->createForm(InformationType::class, $user); 
@@ -35,7 +33,8 @@ class UserInformationController extends Controller
             return $this->redirectToRoute('fos_user_profile_show');
         }
         return $this->render('CodingAvenueLabadoBundle:UserInformation:edit.html.twig', [ 
-           "form" => $form->createView(), "user" => $user, 
+           "form" => $form->createView(), 
+           "user" => $user, 
         ]);
     }
 
