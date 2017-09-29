@@ -32,6 +32,7 @@
                         <ul class="right hide-on-med-and-down">
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <li>
+                                    <a href="{{ path('search') }}" class="btn" style="background-color:#3f51b5">Book Now</a>
                                     <a class='dropdown-button' href='#' data-activates='dropdown1'>{{app.user.username}}</a>
                                     <!-- Dropdown Structure -->
                                     <ul id='dropdown1' class='dropdown-content'>
@@ -53,6 +54,7 @@
         <ul class="side-nav" id="mobile-demo">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <li><a class='dropdown-button' href='#' data-activates='dropdown2'>{{ app.user.username }}</a><li>
+                <li><a href="{{ path('search') }}" class="btn" style="background-color:#3f51b5">Book Now</a></li>
                 <!-- Dropdown Structure -->
                 <ul id='dropdown2' class='dropdown-content'>
                     <li><a href="{{ path('fos_user_profile_show') }}">My Profile</a></li>
