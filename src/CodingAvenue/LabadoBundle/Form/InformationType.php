@@ -14,7 +14,9 @@ class InformationType extends AbstractType
     {   
         $builder
             ->add('address', TextType::class)
-            ->add('landmark', TextType::class)
-            ->add('contact_number', IntegerType::class);
+            ->add('landmark', TextType::class, [
+                'required' => false,
+            ])
+            ->add('mobile_number', IntegerType::class);
     }
 }
