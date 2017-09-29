@@ -22,8 +22,8 @@ class DefaultController extends Controller
         // $laundry_shop = $em->getRepository(LaundryShop::class)->find('59cdd5a8a2d64226bb70f731');
 
         $coords = new Coordinates();
-        $coords->setX(10.342340137091204);
-        $coords->setY(123.91792750660704);
+        $coords->setX(123.91792750660704);
+        $coords->setY(10.342340137091204);
 
         // $user = $this->getUser();
         // $user->setCoordinates($coords);

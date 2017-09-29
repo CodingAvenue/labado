@@ -49,7 +49,7 @@ $(function () {
 
         $.post(
             "/location",
-            {x: coords.lat, y: coords.lng}
+            {x: coords.lng, y: coords.lat}
         );
 
         service.nearbySearch(requirements, storeResult);
