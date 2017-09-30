@@ -11,7 +11,7 @@ use CodingAvenue\LabadoSystemBundle\Document\Coordinates;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="homepage")
      */
     public function indexAction()
     {
@@ -21,7 +21,6 @@ class DefaultController extends Controller
             return $this->redirectToRoute('fos_user_security_login');
         }
      
-        return $this->render('CodingAvenueLabadoBundle:Default:index.html.twig');
     }
 
     /**

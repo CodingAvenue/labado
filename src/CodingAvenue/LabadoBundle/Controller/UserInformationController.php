@@ -29,6 +29,10 @@ class UserInformationController extends Controller
             $user->setLandmark($data->getLandmark());
             $user->setMobileNumber($data->getmobileNumber());
             $em->flush();
+            
+            if ($request->get('_route') === 'firstTimeSetup') {
+                return $this->redirectToRoute('homepage');
+            }
 
             return $this->redirectToRoute('fos_user_profile_show');
         }
