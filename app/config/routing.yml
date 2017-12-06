@@ -1,3 +1,8 @@
+coding_avenue_labadoer:
+    resource: "@CodingAvenueLabadoerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 coding_avenue_labado_system:
     resource: "@CodingAvenueLabadoSystemBundle/Controller/"
     type:     annotation
