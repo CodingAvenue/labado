@@ -3,6 +3,7 @@
     <head>
         <link rel="manifest" href="{{asset('manifest.json')}}">
         <meta name="mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#3f51b5">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="Labado">
         <meta name="apple-mobile-web-app-title" content="Labado">
@@ -65,12 +66,19 @@
             {% endif %}
         </ul>
 
-        {% block body %}{% endblock %}
+        <div id="main-body">
+            {% block body %}{% endblock %}
+        </div>
+
+        {% include 'fail.html.twig' %}
+
         <!-- import javaScript files -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
         <!-- materialize js -->
         <script src="{{ asset('js/materialize.min.js') }}"></script>
+
+        <script src="{{ asset('js/main.js') }}"></script>
 
         <!-- custom javaScript files -->
         {% block javascripts %}{% endblock %}

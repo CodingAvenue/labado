@@ -1,17 +1,30 @@
 <div class="container laundry-shop-detail">
     <div class="row">
-        <div class="col s12 m3">
-            <img src="{{asset('images/default_laundry.png')}}">
-        </div>
-        <div class="col s12 m9">
-            <h4>{{ laundry_shop.getName() }}</h4>
+        <div class="col s12">
+            <div class="row details-header">
+                <img class="col s3" src="{{asset('images/default_laundry.png')}}">
+                <span class="col s9">{{ laundry_shop.getName() }}</span>
+            </div>
             <p id="address">{{ laundry_shop.getAddress() }}</p>
-            <p id="contact_number">{{ laundry_shop.getContactNumber() }}</p>
+            <p id="phone_number">{{ laundry_shop.getPhoneNumber() }}</p>
             <h5>Rates:</h5>
-            {% for service in laundry_shop.getServices() %}
-                <li>{{ service.type }} - &#8369;{{ service.pricePerKilo }}</li>
-            {% endfor %}
-            <a class=" right waves-effect waves-light btn blue" href=" {{ path('inputEstimate',{'id': laundry_shop.getId()}) }} ">Choose</a>
+            <table class="rates-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Unit Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for service in laundry_shop.getServices() %}
+                    <tr>
+                        <td>{{ service.type }}</td>
+                        <td>&#8369;{{ service.pricePerKilo }}/kilo</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a class=" right waves-effect waves-light btn indigo" href=" {{ path('inputEstimate',{'id': laundry_shop.getId()}) }} ">Choose</a>
         </div>
     </div>
 </div>

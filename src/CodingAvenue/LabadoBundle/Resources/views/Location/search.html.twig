@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/searchLocation.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col s12" id="map"></div>
+    </div>
+
+    <div class="row">
+        <div id="no-laundryshops-found">
+            <div class="col s12" >
+                <img id="default-image" src="{{asset('images/default_laundry.png')}}">
+            </div>
+            <div class="col s12">
+                <h4>No laundry shops found</h4>
+                <h6>Unfortunately, our service is not available in your area.</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
+        <a id="pac-btn" class="waves-effect waves-light btn-large indigo">Set location</a>
+        <div id="load-page">
+            {% include '@CodingAvenueLabado/Location/loading_screen.html.twig' %}
+        </div> 
+        <div id="unable-to-detect" class="z-depth-4" style="display:none">
+            {% include '@CodingAvenueLabado/Location/unable_to_detect.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAdrxzUzgYziv65MWKe0kBMozvMQTGf58&libraries=places"></script>
+    <script type="text/javascript" src="{{ asset('js/location/searchLocation.js') }}"></script>
+{% endblock %}

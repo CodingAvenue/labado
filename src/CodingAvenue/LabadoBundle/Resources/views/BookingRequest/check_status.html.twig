@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Finding You a Labadoer{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/findLabadoer.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="main-view" class="container mg-top">
+        <div class="row labado-img-loader center-align">
+            <img src="{{ asset('images/loading_location.gif') }}"/>
+            <label class="loading-message">Finding you a Labadoer</label>
+        </div>
+    </div>
+    <div id="no-labadoer-message" class="mg-top labado-item-container">
+        <div class="container">
+            <div class="row">
+                <img src="{{ asset('img/LabadoLogo.png') }}">
+                <label>Sorry, can't find you a nearby Labadoer at this moment</label>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        var id = "{{ booking_request_id }}";
+    </script>
+    <script type="text/javascript" src="{{ asset('js/BookingRequest/findLabadoer.js') }}"></script>
+{% endblock %}
