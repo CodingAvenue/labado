@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new CodingAvenue\LabadoSystemBundle\CodingAvenueLabadoSystemBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Eo\JobQueueBundle\EoJobQueueBundle(),
+            new CodingAvenue\LabadoerBundle\CodingAvenueLabadoerBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
