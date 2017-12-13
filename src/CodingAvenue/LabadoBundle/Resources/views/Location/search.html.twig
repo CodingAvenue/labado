@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/searchLocation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/showList.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -23,7 +24,7 @@
 
     <div class="container">
         <input id="pac-input" class="controls" type="text" placeholder="Enter your address">
-        <a id="pac-btn" class="waves-effect waves-light btn-large indigo">Set location</a>
+        {# <a id="pac-btn" class="waves-effect waves-light btn-large indigo">Set location</a> #}
         <div id="load-page">
             {% include '@CodingAvenueLabado/Location/loading_screen.html.twig' %}
         </div> 
@@ -35,5 +36,5 @@
 
 {% block javascripts %}
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAdrxzUzgYziv65MWKe0kBMozvMQTGf58&libraries=places"></script>
-    <script type="text/javascript" src="{{ asset('js/location/searchLocation.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/location/showLocationUserLaundry.js') }}"></script>
 {% endblock %}
