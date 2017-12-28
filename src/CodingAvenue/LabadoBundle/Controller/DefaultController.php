@@ -15,11 +15,12 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        if ($this->getUser() instanceOf User) {
-            return $this->redirectToRoute('search');
-        } else {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
-     
+        // if ($this->getUser() instanceOf User) {
+        //     return $this->redirectToRoute('search');
+        // } else {
+        //     return $this->redirectToRoute('fos_user_security_login');
+        // }
+        return $this->render('CodingAvenueLabadoBundle:Default:index.html.twig', [
+        ]);    
     }
 }
