@@ -61,24 +61,28 @@
                     <div id="materialize-menu" class="menuzord">
 
                         <!--logo start-->
-                        <a href="index.html" class="logo-brand">
+                        <a href="{{ path('homepage') }}" class="logo-brand">
                             <img class="retina" src="{{ asset('new-theme/img/logo.png') }}" alt=""/>
                         </a>
                         <!--logo end-->
 
                         <!--mega menu start-->
                         <ul class="menuzord-menu pull-right">
-                            
+
                             <li>
-                                <a href="#">Home</a>
+                                <a href="{{ path('homepage') }}">Home</a>
                             </li>
 
                             <li>
                                 <a href="#">About</a>
                             </li>
 
+                            <li>
+                                <a href="javascript:void(0)">Contact</a>
+                            </li>
+
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <li>
+                                <li class="hide-on-med-and-down">
                                     <a class="fa fa-user" aria-hidden="true">
                                         {{app.user.username}}
                                     </a>
@@ -91,12 +95,14 @@
                                     </ul>
                                 </li>
                             {% else %}
-                                <li><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
-                                <li><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
+                                <li class="hide-on-med-and-down"><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
+                                <li class="hide-on-med-and-down"><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
                             {% endif %}
 
                             <li>
-                                <a href="javascript:void(0)">Contact</a>
+                                <a class="blue white-text fa fa-book" aria-hidden="true" href="{{ path('search') }}" >
+                                    Book Now
+                                </a>
                             </li>
                         </ul>
 
@@ -109,16 +115,54 @@
         </header>
         <!--header end-->
 
-        {% block body %}{% endblock %}
+        <div class="navbar-house-keeping">
+            {% block body %}{% endblock %}
+        </div>
+        <div id="user-floating-btn" class="fixed-action-btn toolbar hide-on-large-only	">
+            <a class="btn-floating btn-large blue">
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+            <ul>
 
-        
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li class="waves-effect waves-light">
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            Logout
+                        </a>
+                    </li>
+                    <li class="waves-effect waves-light">
+                        <a href="{{ path('fos_user_profile_show') }}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li class="waves-effect waves-light">
+                        <a href="{{ path('fos_user_change_password') }}">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                            Settings
+                        </a>
+                    </li>
+                  {% else %}
+                    <li class="waves-effect waves-light">
+                        <a href="{{ path('fos_user_registration_register') }} ">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            Register
+                        </a>
+                    </li>
+                    <li class="waves-effect waves-light">
+                        <a href="{{ path('fos_user_security_login') }}">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                            Login
+                        </a>
+                    </li>
+                  {% endif %}
+            </ul>
+        </div>
+                
         <footer class="footer footer-four">
             <div class="primary-footer brand-bg text-center">
                 <div class="container">
-
-                  <a href="#top" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light" data-section="#top">
-                    <i class="material-icons">&#xE316;</i>
-                  </a>
 
                   <ul class="social-link tt-animate ltr mt-20">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -194,6 +238,7 @@
         <!-- RS5.0 Core JS Files -->
         <script src="{{ asset('new-theme/revolution/js/jquery.themepunch.tools.min.js') }}"></script>
         <script src="{{ asset('new-theme/revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
 
         {% block javascripts %} {% endblock %}
 

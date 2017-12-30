@@ -1013,6 +1013,10 @@ Responsive Menu
 
     /*----*/
 
+    .navbar-house-keeping {
+        margin-top: 50px;
+    }
+
     .tt-nav {
         height: auto;
         position: fixed;
