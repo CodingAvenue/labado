@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c1cdf8084eb01cff15f4abe6f156dbdc",
-    "content-hash": "98629c6a34557351d470a6af49a2e684",
+    "hash": "ef3d238be3d2447c285dfe4d52b5670a",
+    "content-hash": "764df5f2d33cba1ef2382e81d683e74b",
     "packages": [
         {
             "name": "alcaeus/mongo-php-adapter",
@@ -2266,6 +2266,32 @@
             "time": "2017-12-08 19:49:08"
         },
         {
+            "name": "labadohttp/api-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:ca-labado/LabadoAPIClient.git",
+                "reference": "ed0b0171cb314bf56224acf35d605663e4fa7c1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/ca-labado%2FLabadoAPIClient/repository/archive.zip?sha=ed0b0171cb314bf56224acf35d605663e4fa7c1d",
+                "reference": "ed0b0171cb314bf56224acf35d605663e4fa7c1d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LabadoAPIClient\\": "src"
+                }
+            },
+            "description": "An API cleint for labado application",
+            "time": "2018-01-10 08:35:37"
+        },
+        {
             "name": "mongodb/mongodb",
             "version": "1.0.5",
             "source": {
@@ -4178,9 +4204,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "eo/job-queue-bundle": 20
+        "eo/job-queue-bundle": 20,
+        "labadohttp/api-client": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
