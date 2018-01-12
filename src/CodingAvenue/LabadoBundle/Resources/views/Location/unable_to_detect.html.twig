@@ -1,4 +1,4 @@
-<div class="card horizontal">
+<!-- <div class="card horizontal">
     <div class="container">
 	<div class="row">
 	    <div class="card-image col s3">
@@ -21,4 +21,41 @@
 	    </div>
 	</div>
     </div>
-</div>
+</div> -->
+
+
+<section class="page-title ptb-50">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Unable to Detect Location</h2>
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li class="active">404</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="error-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5">
+				<i class="fa fa-dropbox"></i>
+			</div>
+			
+			<div class="col-sm-7">
+				<div class="error-info">
+					<h1 class="mb-30">404</h1>
+					<span class="error-sub">OOPS! UNABLE TO DETECT YOUR LOCATION</span>
+
+					<p>Maybe your GPS is turned-off or there's a problem to the server</p>
+					<a class="btn btn-lg waves-effect waves-light" href="index.html">Take Me Home</a>
+					<a href="{{ path('search') }}" id="retry-button" class="waves-effect waves-light btn z-depth-3">Retry</a>
+					<a href="javascript:;" id="manual-button" class="waves-effect teal btn z-depth-3">Set</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
