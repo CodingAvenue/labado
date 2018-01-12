@@ -12,7 +12,7 @@ class StandardServiceMatrix
     public $id;
 
     /**
-    * @MongoDB\ReferenceOne(targetDocument="LaundryService")
+    * @MongoDB\EmbedOne(targetDocument="LaundryService")
     */
     public $service;
 
