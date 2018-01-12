@@ -1,36 +1,10 @@
-<!-- <div class="card horizontal">
-    <div class="container">
-	<div class="row">
-	    <div class="card-image col s3">
-		<li id="gps-off" class="material-icons">gps_off</li>
-	    </div>
-	    <div class="card-stacked col s9">
-		<div class="card-content">
-		    <p>Having trouble detecting your location. Maybe your GPS is turned-off or there's a problem to the server</p>
-		</div>
-	    </div>
-	</div>
-	<div class="row">
-	    <div class="col s4">
-	    </div>
-	    <div class="col s4">
-			<a href="{{ path('search') }}" id="retry-button" class="waves-effect waves-light btn z-depth-3">Retry</a>
-	    </div>
-	    <div class="col s4">
-			<a href="javascript:;" id="manual-button" class="waves-effect waves-light teal btn z-depth-3">Set</a>
-	    </div>
-	</div>
-    </div>
-</div> -->
-
-
 <section class="page-title ptb-50">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<h2>Unable to Detect Location</h2>
 				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
+					<li><a href="{{ path('homepage') }}">Home</a></li>
 					<li class="active">404</li>
 				</ol>
 			</div>
@@ -51,7 +25,6 @@
 					<span class="error-sub">OOPS! UNABLE TO DETECT YOUR LOCATION</span>
 
 					<p>Maybe your GPS is turned-off or there's a problem to the server</p>
-					<a class="btn btn-lg waves-effect waves-light" href="index.html">Take Me Home</a>
 					<a href="{{ path('search') }}" id="retry-button" class="waves-effect waves-light btn z-depth-3">Retry</a>
 					<a href="javascript:;" id="manual-button" class="waves-effect teal btn z-depth-3">Set</a>
 				</div>
