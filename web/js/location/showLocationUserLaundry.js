@@ -62,22 +62,39 @@ $(function () {
 
     function createMarker(place) {
         var placeLoc = place.geometry.location;
+        var icon = {
+            url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            scaledSize: new google.maps.Size(50,50),
+        }
         var marker = new google.maps.Marker({
             map: map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', 
+            icon: icon,
             position: place.geometry.location
+
         });
 
         markers.push(marker);
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.close();
+            infowindow.open(map, this);
+
             var row = '<div class="laundry-header collapsible-header" data-target=' + place.place_id
                         + '><p><span>'
                         + place.name + '</span><span id="vici">'
-                        + place.vicinity + '</span></p></div><div class="collapsible-body"></div>';
-
+                        + place.vicinity + '</span></p></div><div id="shiela" class="collapsible-body"></div>';
             infowindow.setContent(row);
-            infowindow.open(map, this);
+
+        var placeId = place.place_id;
+        var theUrl = "/laundryshop/" + placeId + "/details";
+        $.ajax({
+            url: theUrl,
+        }).done(function (data) {
+            infowindow.setContent(data);
+        }).fail(function (e) {
+            var errorMessage = "Cannot retrieve data";
+            body.html(errorMessage);
+        });
+
         });
     }
 
@@ -102,9 +119,13 @@ $(function () {
         var nav_size = $('nav').height();
         var window_size = $(window).height();
         $('#map').height(window_size - nav_size);
+        var icon = {
+            url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+            scaledSize: new google.maps.Size(50,50),
+        }
         var marker = new google.maps.Marker({
             map: map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png', 
+            icon: icon,
             position: coords,
             draggable: true,
             animation: google.maps.Animation.DROP,
