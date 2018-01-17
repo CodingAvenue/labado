@@ -81,7 +81,7 @@ $(function () {
             var row = '<div class="laundry-header collapsible-header" data-target=' + place.place_id
                         + '><p><span>'
                         + place.name + '</span><span id="vici">'
-                        + place.vicinity + '</span></p></div><div id="shiela" class="collapsible-body"></div>';
+                        + place.vicinity + '</span></p></div><div class="collapsible-body"></div>';
             infowindow.setContent(row);
 
         var placeId = place.place_id;
@@ -138,6 +138,7 @@ $(function () {
 
         map.addListener('bounds_changed', function (e) {
             searchBox.setBounds(map.getBounds());
+            findLaundry(map.getCenter());
             $('#pac-input').show();
         });
 
