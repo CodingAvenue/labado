@@ -62,7 +62,7 @@
 
                         <!--logo start-->
                         <a href="{{ path('homepage') }}" class="logo-brand">
-                            <img class="retina" src="{{ asset('new-theme/img/logo.png') }}" alt=""/>
+                            <img class="retina" src="{{ asset('new-theme/img/longlogo.png') }}" alt=""/>
                         </a>
                         <!--logo end-->
 
@@ -98,9 +98,8 @@
                                 <li class="hide-on-med-and-down"><a href="{{ path('fos_user_security_login') }} ">{{'layout.login'|trans({},'FOSUserBundle') }}</a></li>
                                 <li class="hide-on-med-and-down"><a href="{{ path('fos_user_registration_register') }} ">{{'layout.register'|trans({},'FOSUserBundle') }}</a></li>
                             {% endif %}
-
                             <li>
-                                <a class="blue white-text fa fa-book" aria-hidden="true" href="{{ path('search') }}" >
+                                    <a class="blue lighten-1 white-text fa fa-book" aria-hidden="true" href="{{ path('search') }}" >
                                     Book Now
                                 </a>
                             </li>
@@ -119,7 +118,7 @@
             {% block body %}{% endblock %}
         </div>
         <div id="user-floating-btn" class="fixed-action-btn toolbar hide-on-large-only	">
-            <a class="btn-floating btn-large blue">
+            <a class="btn-floating btn-large pink">
                 <i class="fa fa-user" aria-hidden="true"></i>
             </a>
             <ul>
@@ -190,24 +189,12 @@
                   </div><!-- /.row -->
                 </div><!-- /.container -->
             </div><!-- /.primary-footer -->
-
-            <div class="secondary-footer brand-bg darken-2 text-center">
-                <div class="container">
-                    <ul>
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">About us</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Portfolio</a></li>
-                      <li><a href="#">Contact us</a></li>
-                    </ul>
-                </div><!-- /.container -->
-            </div><!-- /.secondary-footer -->
         </footer>
 
         <!-- Preloader -->
         <div id="preloader">
           <div class="preloader-position"> 
-            <img src="{{ asset('new-theme/img/labado-logo.png') }}" alt="logo" >
+            <img src="{{ asset('new-theme/img/labadologo2.png') }}" alt="logo" >
             <div class="progress">
               <div class="indeterminate"></div>
             </div>
