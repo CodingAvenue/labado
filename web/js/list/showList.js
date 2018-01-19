@@ -7,20 +7,30 @@ $(function () {
         location.href = "/location/search";
     }
 
-    var ul_id = $('#laundry-list');
+    var ul_id = $('#accordion-one');
+    var shopNumber = 0;
     laundry_shops.map(function (laundry) {
-        var row = '<li><div class="laundry-header collapsible-header" data-target=' + laundry.place_id
-        + '><p><span>'
-        + laundry.name + '</span><span id="vici">'
-        + laundry.vicinity + '</span></p></div><div class="collapsible-body"></div></li>';
+        var shop = '<div class="panel panel-default" data-target="' + laundry.place_id +'" >'
+            + '<div class="panel-heading">'
+                + '<h3 class="panel-title">'
+                    + '<a class="collapsed" data-toggle="collapse" data-parent="#accordion-'+ (shopNumber) +'" href="#shop-panel-'+ (shopNumber) +'">'
+                        + laundry.name + ' ('
+                        + laundry.vicinity  + ')'
+                    + '</a>'
+                + '</h3>'
+            + '</div>'
+            + '<div id="shop-panel-'+ (shopNumber) +'" class="panel-collapse collapse"><div class="panel-body"></div></div>'
+        + '</div>';
 
-        ul_id.append(row);
+        shopNumber++;
+        ul_id.append(shop);
     });
 
-    $("#laundry-list").on('click', '.laundry-header', function () {
+
+    $("#accordion-one").on('click', '.panel', function () {
         var placeId = $(this).data('target');
         var theUrl = "laundryshop/" + placeId + "/details";
-        var body = $(this).next('.collapsible-body');
+        var body = $(this).find('.panel-collapse .panel-body');
         $.ajax({
             url: theUrl,
         }).done(function (data) {

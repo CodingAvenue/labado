@@ -21,6 +21,9 @@ class AppKernel extends Kernel
             new CodingAvenue\LabadoSystemBundle\CodingAvenueLabadoSystemBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Eo\JobQueueBundle\EoJobQueueBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
