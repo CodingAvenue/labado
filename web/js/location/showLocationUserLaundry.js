@@ -205,14 +205,6 @@ $(function () {
         $('#map').height(window_size - nav_size);
     }
 
-    // $("#pac-btn").click(function () {
-    //     coords = new google.maps.LatLng(lat, lng);
-    //     initMap(coords);
-    //     findLaundry(coords);
-    //     $('#map').hide();
-    //     $('#pac-input').hide();
-    // });
-
     $("#unable-to-detect").on('click', '#manual-button', function () {
         $('#unable-to-detect').hide();
         showLaundry();
