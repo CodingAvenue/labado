@@ -1,7 +1,7 @@
 coding_avenue_labado_system:
     resource: "@CodingAvenueLabadoSystemBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /api/
 
 coding_avenue_labado:
     resource: "@CodingAvenueLabadoBundle/Controller/"
